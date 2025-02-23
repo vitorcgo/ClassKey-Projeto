@@ -2068,4 +2068,11 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-contain-style
+@property --tw-contain-style {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
