@@ -8,6 +8,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+  cursor: url('/src/images/cursor.png'), auto;
+}
+
 section {
     /*dimenções*/
     width: 100%;
@@ -21,8 +25,8 @@ section {
     align-items: center;
 }
 
-/*box do login*/
-.container-login {
+/*box do cadastro*/
+.container-cadastro {
     width: 95%;
     height: 680px;
 
@@ -45,8 +49,8 @@ section {
   margin: 40px 0 650px 30px;
 }
 
-/*Frmulario  da page login*/
-.content-login {
+/*Frmulario  da page cadastro*/
+.content-cadastro {
     width: 500px;
     margin-left: 70px;
 
@@ -55,24 +59,22 @@ section {
     align-items: center;
 }
 
-.content-login img {
+.content-cadastro img {
     width: 90px;
     height: 90px;
-
-    margin-bottom: 17px;
 }
 
-.content-login h1 {
+.content-cadastro h1 {
     font-size: 2rem;
     font-weight: 600;
 
     color: black;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
-.inputs-login {
+.inputs-cadastro {
     width: 500px;
     height: 50px;
 
@@ -84,24 +86,17 @@ section {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 
     padding-left: 32px;
-    margin-bottom: 17px;
+    margin-bottom: 10px;
 }
 
-.senha {
-    width: 510px;
-
-    font-size: 16px;
-    font-weight: 300;
-
+.termos {
     display: flex;
-    justify-content: space-between;
-    padding-left: 10px;
 
-    margin-bottom: 45px;
+    margin: 0 0 30px 15px;
 }
 
-.lembrar-senha {
-    display: flex;
+.termos span {
+    font-weight: 600;
 }
 
 #checkbox {
@@ -112,7 +107,7 @@ section {
     margin-right: 10px;
 }
 
-.content-login button {
+.content-cadastro button {
     width: 276px;
     height: 40px;
 
@@ -130,7 +125,7 @@ section {
     transition: 0.8s;
 }
 
-.content-login button:hover {
+.content-cadastro button:hover {
     box-shadow: -3px 3px 10px 1px rgba(195, 56, 241, 0.8);
 
     cursor: pointer;
@@ -151,10 +146,6 @@ section {
     justify-content: space-between;
 }
 
-body {
-  cursor: url('/src/images/cursor.png'), auto;
-}
-
 .redes-sociais img {
     width: 50px;
 
@@ -173,7 +164,7 @@ body {
 
     position: absolute;
 
-    margin-left: 627px;
+    margin-left: 700px;
 
     animation: animação  linear infinite;
     animation-duration: 5s;
@@ -220,7 +211,6 @@ body {
     transform: translateY(0px);
   }
 }
-
 
 .registrar-se {
     width: 45%;
@@ -284,8 +274,4 @@ body {
     box-shadow: -3px 3px 10px 1px rgba(195, 56, 241, 0.8);
 
     cursor: pointer;
-}
-
-.cursor-pointer {
-  cursor: pointer;
 }

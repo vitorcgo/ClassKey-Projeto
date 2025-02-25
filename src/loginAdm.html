@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Adminstrativo</title>
+    <link rel="shortcut icon" href="./assets/img/Logo-site.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/src/css/loginAdm.css">
+    <link rel="icon" href="/src/images/logo-principal.png" />
+</head>
+
+<body>
+    <section>
+        <div class="container-login">
+
+            <div class="content-login">
+                <h1>Painel Adminstrativo.</h1>
+                <form action="/src/login.html">
+                    <input style="display: block;" type="email" class="inputs-login" nome="email" placeholder="insira seu e-mail." required />
+                    <input style="display: block;" type="password" class="inputs-login"  nome="password" placeholder="insira sua senha." required/>
+
+                    <!-- Lembrar senha ou redefinir -->
+                    <div class="senha">
+                        <div class="lembrar-senha">
+                            <input type="checkbox" id="checkbox" nome="checkbox" />
+                            <p>Lembrar sua senha</p>
+                        </div>
+                        <p>esqueceu sua senha?</p>
+                    </div>
+                    
+                    <button>Entrar</button>
+                </form>
+            </div>            
+        </div>
+    </section>
+</body>
+</html>

@@ -1,15 +1,70 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/css/global.css">
+    <title>Login - ClassKey</title>
     <link rel="stylesheet" href="/src/css/login.css">
     <link rel="icon" href="/src/images/logo-principal.png" />
-    <title>Login in - ClassKey</title>
 </head>
-    <body>
 
+<body>
+    <section>
+        <div class="container-login">
+            <img class="voltar" src="/src/images/volta-svg.svg" alt="botão de voltar">
 
+            <div class="content-login">
+                <img src="/src/images/Logo-site.svg" alt="Logo do site">
+                <h1>Login in.</h1>
+                <form action="login.html">
+                    <input style="display: block;" type="email" class="inputs-login" nome="email" placeholder="insira seu e-mail." required/>
+                    <input style="display: block;" type="password" class="inputs-login"  nome="password" placeholder="insira sua senha." required/>
+
+                    <!-- Lembrar senha ou redefinir -->
+                    <div class="senha">
+                        <div class="lembrar-senha">
+                            <input type="checkbox" id="checkbox" nome="checkbox" />
+                            <p class="cursor-pointer"><span>Lembrar sua senha</span></p>
+                        </div>
+                        <p>Esqueceu sua senha?</p>
+                    </div>
+                    
+                    <button>Entrar</button>
+                </form>
+                    <p id="outras-contas">ou entre pelas suas contas</p>
+
+                    <div class="redes-sociais">
+                        <img id="icon" src="/src/images/icon-Facebook.svg" alt="svg-facebook" />
+                        <img id="icon" src="/src/images/icon-Google.svg" alt="svg-google" />
+                        <img id="icon" src="/src/images/icon-Steam.svg" alt="svg-steam" />
+                    </div>
+
+            </div>
+
+            <div class="avatar">
+                <img src="/src/images/avatar-login.svg" alt="svg-avatar">
+            </div>
+
+            <div class="registrar-se">
+                    <h1>Crie uma 
+                        <br>
+                        <span>
+                            conta
+                        </span> 
+                        com a gente!
+                    </h1>
+                    <p>
+                        Você pode acompanhar suas encomendas 
+                        <br>
+                        e ganhar promoções incriveis ao se indentificar!
+                    </p>
+                    
+                    <a href="/src/cadastro.html" target="_blank">
+                        <button>Registrar-se</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
 </html>
