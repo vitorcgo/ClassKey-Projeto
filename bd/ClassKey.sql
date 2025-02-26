@@ -35,7 +35,7 @@ CREATE TABLE `pedido`(
 CREATE TABLE `produto`(
     `produto_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nome` VARCHAR(255) NOT NULL,
-    `preco` FLOAT(53) NOT NULL,
+    `preco` DECIMAL(10,2) NOT NULL,
     `categoria` CHAR(255) NOT NULL,
     `status` CHAR(255) NOT NULL
 );
@@ -64,7 +64,7 @@ CREATE TABLE `pedido_item`(
     `pedido_id` INT UNSIGNED NOT NULL,
     `produto_id` INT UNSIGNED NOT NULL,
     `qtd` INT NOT NULL,
-    `preco_unitario` FLOAT(53) NOT NULL
+    `preco_unitario` DECIMAL(10,2) NOT NULL
 );
 
 CREATE TABLE `pedido_key`(
@@ -79,7 +79,7 @@ CREATE TABLE `pagamento`(
     `pedido_id` INT UNSIGNED NOT NULL,
     `metodo_pagamento` ENUM('Cartão', 'Boleto', 'Pix') NOT NULL,
     `status` ENUM('Pendente', 'Aprovado', 'Recusado') NOT NULL,
-    `valor_total` FLOAT(53) NOT NULL,
+    `valor_total` DECIMAL(10,2) NOT NULL,
     `data_pagamento` DATETIME NOT NULL
 );
 
