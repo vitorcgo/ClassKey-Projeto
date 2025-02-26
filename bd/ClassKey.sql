@@ -88,7 +88,6 @@ CREATE TABLE `admin`(
     `usuario` VARCHAR(255) NOT NULL,
     `senha_hash` VARCHAR(255) NOT NULL,
     `salt` VARCHAR(255) NOT NULL,
-    `acesso` BIGINT NOT NULL,
     `data_criacao` DATETIME NOT NULL,
     `data_ultimo_acesso` DATETIME NOT NULL
 );
