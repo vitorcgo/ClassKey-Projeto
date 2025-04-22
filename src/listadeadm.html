@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/css/global.css" />
+    <link rel="stylesheet" href="/src/css/modelo.css" />
+    <link rel="stylesheet" href="/src/css/listadeadm.css" />
+    <title>ADM - Modelo</title>
+</head>
+
+<body>
+
+    <div class="principalcontainer">
+
+        <!-- MENU LATERAL -->
+        <aside class="aside">
+          <div class="cont-aside">
+            <h1>Admin</h1>
+            <div class="flex-menu-aside">
+              <img src="/src/images/task" alt="Ícone Cadastro" />
+              <p><a href="/src/painel.html">Ínicio</a></p>
+            </div>
+            <div class="flex-menu-aside">
+              <img src="/src/images/task" alt="Ícone Cadastro" />
+              <p><a href="/src/cadastroprodutos.html">+Cadastro</a></p>
+            </div>
+            <div class="flex-menu-aside">
+              <img src="/src/images/task" alt="Ícone Listagem" />
+              <p><a href="/src/cadastrocategoria.html">+Categoria</a></p>
+            </div>
+            <div class="flex-menu-aside">
+              <img src="/src/images/task" alt="Ícone Listagem" />
+              <p><a href="/src/listadeprodutos.html">Produtos</p></a>
+            </div>
+          </div>
+
+            <hr style="border-color: #fff4; width: 100%; margin: 20px 0;" />
+
+            <div class="cont-aside">
+                <h1>Gerenciar</h1>
+                <div class="flex-menu-aside">
+                    <img src="/src/images/analitycs" alt="Ícone Analytics" />
+                    <p>Analitycs</p>
+                </div>
+                <div class="flex-menu-aside">
+                    <img src="/src/images/usuarios.png" alt="Ícone Usuários" />
+                    <p>Usuarios</p>
+                </div>
+                <div class="flex-menu-aside">
+                    <img src="/src/images/vendas" alt="Ícone Vendas" />
+                    <p>Vendas</p>
+                </div>
+                <div class="flex-menu-aside">
+                    <img src="/src/images/usuarios.png" alt="Ícone Usuários" />
+                    <p><a href="/src/cadastrodeadm.html">+ADM</p></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO CENTRAL -->
+        <section class="aside-direito">
+
+            <!-- TOPO -->
+            <header>
+                <div class="flex-ok">
+                    <img src="/src/images/lgo-menu.svg" alt="Logo" />
+                    <h3>
+                        Bem vindo!<br />
+                        <strong>Administrador</strong>
+                    </h3>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <a href="/src/index.html">
+                        <img src="/src/images/logout-rounded.png" alt="Logout" />
+                        <p style="color: black">Sair</p>
+                    </a>
+                </div>
+            </header>
+
+            <!-- CONTEÚDO PRINCIPAL -->
+            <main class="conteudo">
+                <div class="produto-search">
+                <h1 class="title-produtos">Administradores</h1>
+            </div>
+            
+                <section class="produtos-tabela">
+                  <div class="tabela-cabecalho">
+                    <span>E-mail</span>
+                    <span>Senha</span>
+                    <span>Status</span>
+                    <span>Funções</span>
+                  </div>
+            
+                  <!-- PRODUTO 1 -->
+                  <div class="produto">
+                    <div class="produto-nome">vitor@gmail.com</div>
+                    <div class="produto-estoque">123</div>
+                    <div class="produto-id">Ativo</div>
+                    <div class="produto-funcoes">
+                      <button class="btn-excluir">Excluir</button>
+                    </div>
+                  </div>
+            
+                  <!-- PRODUTO 2 -->
+                  <div class="produto">
+                    <div class="produto-nome">alan@gmail.com</div>
+                    <div class="produto-estoque">123</div>
+                    <div class="produto-id">Ativo</div>
+                    <div class="produto-funcoes">
+                      <button class="btn-excluir">Excluir</button>
+                    </div>
+                  </div>
+            
+                  <!-- PRODUTO 3 -->
+                  <div class="produto">
+                    <div class="produto-nome">guilherme@gmail.com</div>
+                    <div class="produto-estoque">123</div>
+                    <div class="produto-id">Ativo</div>
+                    <div class="produto-funcoes">
+                      <button class="btn-excluir">Excluir</button>
+                    </div>
+                  </div>
+            
+                  <!-- PRODUTO 4 -->
+                  <div class="produto">
+                    <div class="produto-nome">paulo@gmail.com</div>
+                    <div class="produto-estoque">123</div>
+                    <div class="produto-id">Ativo</div>
+                    <div class="produto-funcoes">
+                      <button class="btn-excluir">Excluir</button>
+                    </div>
+                  </div>
+
+                  <!-- PRODUTO 5 -->
+                  <div class="produto">
+                    <div class="produto-nome">gustavo@gmail.com</div>
+                    <div class="produto-estoque">123</div>
+                    <div class="produto-id">Ativo</div>
+                    <div class="produto-funcoes">
+                      <button class="btn-excluir">Excluir</button>
+                    </div>
+                  </div>
+
+                  <!-- PRODUTO 6 -->
+
+                  <div class="produto">
+                    <div class="produto-nome">thyagoquintas@gmail.com</div>
+                    <div class="produto-estoque">123</div>
+                    <div class="produto-id">Ativo</div>
+                    <div class="produto-funcoes">
+                      <button class="btn-excluir">Excluir</button>
+                    </div>
+                  </div>
+                  </div>
+                </section>
+
+
+            </main>
+
+        </section>
+
+    </div>
+
+    <script src="/src/javascript/togglestatusproduct.js"></script>
+</body>
+
+</html>
