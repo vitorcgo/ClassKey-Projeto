@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/css/global.css" />
+  <link rel="stylesheet" href="/src/css/modelo.css" />
+  <link rel="stylesheet" href="/src/css/cadastroadmin.css">
+  <title>ADM - Modelo</title>
+</head>
+
+<body>
+
+  <div class="principalcontainer">
+
+    <!-- MENU LATERAL -->
+    <aside class="aside">
+      <div class="cont-aside">
+        <h1>Admin</h1>
+        <div class="flex-menu-aside">
+          <img src="/src/images/task" alt="Ícone Cadastro" />
+          <p><a href="/src/painel.html">Ínicio</a></p>
+        </div>
+        <div class="flex-menu-aside">
+          <img src="/src/images/task" alt="Ícone Cadastro" />
+          <p><a href="/src/cadastroprodutos.html">+Cadastro</a></p>
+        </div>
+        <div class="flex-menu-aside">
+          <img src="/src/images/task" alt="Ícone Listagem" />
+          <p><a href="/src/cadastrocategoria.html">+Categoria</a></p>
+        </div>
+        <div class="flex-menu-aside">
+          <img src="/src/images/task" alt="Ícone Listagem" />
+          <p><a href="/src/listadeprodutos.html">Produtos</p></a>
+        </div>
+      </div>
+
+      <hr style="border-color: #fff4; width: 100%; margin: 20px 0;" />
+
+      <div class="cont-aside">
+        <h1>Gerenciar</h1>
+        <div  class="flex-menu-aside">
+          <img src="/src/images/analitycs" alt="Ícone Analytics" />
+          <p>Analitycs</p>
+        </div>
+        <div  class="flex-menu-aside"> 
+            <img src="/src/images/usuarios.png" alt="Ícone Usuários" />
+            <p>Usuarios</p>
+          </div >
+        <div  class="flex-menu-aside">
+          <img src="/src/images/vendas" alt="Ícone Vendas" />
+          <p>Vendas</p>
+        </div>
+        <div  class="flex-menu-aside"> 
+            <img src="/src/images/usuarios.png" alt="Ícone Usuários" />
+            <p><a href="/src/cadastrodeadm.html">+ADM</p></a>
+          </div >
+      </div>
+    </aside>
+
+    <!-- CONTEÚDO CENTRAL -->
+    <section class="aside-direito">
+
+      <!-- TOPO -->
+      <header>
+        <div class="flex-ok">
+          <img src="/src/images/lgo-menu.svg" alt="Logo" />
+          <h3>
+            Bem vindo!<br />
+            <strong>Administrador</strong>
+          </h3>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <img src="/src/images/logout-rounded.png" alt="Logout" />
+          <p>Sair</p>
+        </div>
+      </header>
+
+      <!-- CONTEÚDO PRINCIPAL -->
+      <main class="conteudo-adm">
+        <h1>Cadastro de Usuario Admin</h1>
+        <form action="">
+            <label for="cadastroadmin"></label>
+            <input type="email" name="cadastroadmin" id="cadastroadmin" placeholder="E-mail do Administrador">
+            <br>
+            <label for="cadastroadmin"></label>
+            <input type="password" name="passwordadmin" id="passwordadmin" placeholder="Senha do Administrador">
+            <br>
+            <label for="submit-categoria"></label>
+            <input type="submit" value="Cadastrar" class="submit-adm">
+        </form>
+        
+      </main>
+
+    </section>
+
+  </div>
+
+</body>
+
+</html>
