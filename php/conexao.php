@@ -2,7 +2,7 @@
 //configuracoes do banco de dados
 
 $host = 'localhost';
-$db = 'classkey'
+$db = 'classkey';
 $user = 'root';
 $pass = '';
 $chartset = 'utf8mb4';
