@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/src/css/global.css" />
   <link rel="stylesheet" href="/src/css/modelo.css" />
+  <link rel="stylesheet" href="/src/css/painel.css">
   <title>ADM - Modelo</title>
 </head>
 
@@ -124,6 +125,102 @@
 
       <!-- CONTEÚDO PRINCIPAL -->
       <main class="conteudo">
+        <!-- Saudação -->
+        <div class="boas-vindas">
+          <h2>Olá,</h2>
+          <p>Último login: 01/05/2025 às 14:42</p>
+        </div>
+      
+        <!-- Cards de resumo -->
+        <div class="dashboard-cards">
+          <div class="card">
+            <h3>120</h3>
+            <p>Produtos</p>
+          </div>
+          <div class="card">
+            <h3>32</h3>
+            <p>Pedidos Pendentes</p>
+          </div>
+          <div class="card">
+            <h3>R$ 12.450,00</h3>
+            <p>Faturamento (Mês)</p>
+          </div>
+        </div>
+      
+        <!-- Gráfico de Vendas -->
+        <div class="grafico-container">
+          <h3>Vendas da Semana</h3>
+          <canvas id="graficoVendas" height="50" width="50"></canvas>
+        </div>
+      
+        <!-- Últimas ações -->
+        <div class="ultimas-acoes">
+          <h3>Últimas Ações</h3>
+          <br>
+          <ul>
+            <li> Produto "Camisa ABC" removido *EXEMPLO*</li>
+            <li> Produto "Camisa ABC" removido *EXEMPLO*</li>
+            <li> Produto "Camisa ABC" removido *EXEMPLO*</li>
+            <li> Produto "Camisa ABC" removido *EXEMPLO*</li>
+            <li> Produto "Camisa ABC" removido *EXEMPLO*</li>
+            <li> Produto "Camisa ABC" removido *EXEMPLO*</li>
+          </ul>
+        </div>
+      
+        <!-- Atalhos rápidos -->
+        <div class="atalhos">
+          <h3>Ações Rápidas</h3>
+          <br>
+          <button onclick="location.href='/src/cadastroprodutos.html'" class="btn-quick">+ Novo Produto</button>
+          <button onclick="location.href='/src/listadeprodutos.html'" class="btn-quick"> Ver Produtos</button>
+          <button onclick="location.href='/src/listadeusuarios.html'" class="btn-quick">Gerenciar Usuários</button>
+        </div>
+
+
+        <!-- Ficticio -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+          const ctx = document.getElementById('graficoVendas').getContext('2d');
+          new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+              datasets: [{
+                label: 'Vendas',
+                data: [12, 15, 19, 10, 6, 14, 20],
+                fill: true,
+                backgroundColor: 'rgba(0, 255, 0, 0.2)',
+                borderColor: 'lime',
+                tension: 0.3,
+                pointBackgroundColor: 'lime'
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false, // <<< ESSENCIAL PARA FUNCIONAR COM HEIGHT FIXO
+              plugins: {
+                legend: {
+                  labels: {
+                    color: '#ccc'
+                  }
+                }
+              },
+              scales: {
+                x: {
+                  ticks: {
+                    color: '#ccc'
+                  }
+                },
+                y: {
+                  ticks: {
+                    color: '#ccc'
+                  }
+                }
+              }
+            }
+          });
+        </script>
+        
 
 
       </main>
@@ -132,6 +229,7 @@
 
   </div>
   <script src="/src/javascript/accordion.js"></script>
+  
 
 </body>
 
