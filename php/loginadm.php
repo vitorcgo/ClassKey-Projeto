@@ -16,12 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($usuario && password_verify($senha, $usuario['senha'])) {
         // Login bem-sucedido
         $_SESSION['admin'] = $usuario['email'];
-        header('Location: painel_admin.php');
+        header('Location: loginadmin.php');
         exit;
     } else {
         // Falha no login
         $_SESSION['mensagem_erro'] = "E-mail ou senha incorretos!";
-        header('Location: loginadm.html');
+        header('Location: loginadmin.html');
         exit;
     }
 }
