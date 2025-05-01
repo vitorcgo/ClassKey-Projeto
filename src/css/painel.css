@@ -134,7 +134,7 @@
   
   .btn-quick {
     background: #00cc44;
-    color: rgb(0, 37, 0);
+    color: rgb(255, 255, 255);
     border-radius: 30px;
     width: 200px;
     padding: 5px;
@@ -145,7 +145,11 @@
     margin: 0 auto;
     align-items: center;
     text-align: center;
-    padding: 20px
+    padding: 20px;
+  }
+
+  .atalhos button {
+    cursor: pointer;
   }
 
   .ultimas-acoes {
