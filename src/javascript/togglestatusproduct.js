@@ -1,7 +1,7 @@
 function toggleStatus(button) {
-    const produtoLinha = button.closest('.produto');
+    const produtoLinha = button.closest('tr');
     const btnEditar = produtoLinha.querySelector('.btn-editar');
-    const produtoId = produtoLinha.querySelector('.produto-id').textContent;
+    const produtoId = produtoLinha.querySelectorAll('td')[5].textContent;
 
     if (button.classList.contains('verde')) {
         button.classList.remove('verde');

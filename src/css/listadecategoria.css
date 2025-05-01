@@ -1,0 +1,239 @@
+.tabela-produtos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: #111;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabela-produtos th,
+.tabela-produtos td {
+    padding: 12px 10px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+    color: white;
+}
+
+.tabela-produtos th {
+    background-color: #111;
+    font-weight: bold;
+    color: white;
+}
+
+.tabela-produtos tr:nth-child(even) {
+    background-color: #181818;
+}
+
+.tabela-produtos tr:hover {
+    background-color: #222;
+}
+
+.btn-editar {
+    background-color: #00ff00;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-excluir {
+    background-color: red;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.status-btn.verde {
+    background-color: green;
+    color: white;
+}
+
+.status-btn.vermelho {
+    background-color: red;
+    color: white;
+}
+
+.produto.desativado {
+    opacity: 0.6;
+}
+
+    .status-btn {
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    body {
+        background-color: #000;
+        font-family: Arial, sans-serif;
+        color: white;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .main-produtos {
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .title-produtos {
+        color: #00ff00;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+      
+      .input-pesquisar {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 1rem;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        text-align: center;
+        
+      }
+      
+      .produtos-tabela {
+        background-color: #111;
+        padding: 1rem;
+        border-radius: 10px;
+      }
+      
+      .tabela-cabecalho,
+      .produto {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 2fr;
+        gap: 1rem;
+        align-items: center;
+        padding: 0.5rem 0;
+      }
+      
+      .tabela-cabecalho {
+        font-weight: bold;
+        border-bottom: 2px solid #333;
+      }
+      
+      .produto {
+        border-bottom: 1px solid #333;
+      }
+      
+      .produto-imagem {
+        background-color: white;
+        color: black;
+        width: 100%;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+      }
+      
+      .status-btn {
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      
+      .status-btn.verde {
+        background-color: green;
+        color: white;
+      }
+      
+      .status-btn.vermelho {
+        background-color: red;
+        color: white;
+      }
+      
+      .produto.desativado {
+        opacity: 0.6;
+      }
+      
+      .btn-editar {
+        background-color: #00ff00;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      
+      .btn-excluir {
+        background-color: red;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 10px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        margin-left: 5px;
+      }
+      
+      .paginacao {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        gap: 5px;
+      }
+      
+      .paginacao button {
+        padding: 4px 12px;
+        border: none;
+        border-radius: 20px;
+        background-color: white;
+        color: black;
+        cursor: pointer;
+      }
+      
+      .produto-search {
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        gap: 100px;;
+      }
+    
+      .tabela-produtos {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+        background-color: #111;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .tabela-produtos th,
+    .tabela-produtos td {
+        padding: 12px 10px;
+        text-align: center;
+        border-bottom: 1px solid #333;
+        color: white;
+    }
+    
+    .tabela-produtos th {
+        background-color: #111;
+        font-weight: bold;
+        color: white;
+    }
+    
+    .tabela-produtos tr:nth-child(even) {
+        background-color: #181818;
+    }
+    
+    .tabela-produtos tr:hover {
+        background-color: #222;
+    }

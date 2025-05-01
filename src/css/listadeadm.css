@@ -1,4 +1,62 @@
-body {
+.tabela-admins {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 0 10px #0001;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  
+  .tabela-admins th, .tabela-admins td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .tabela-admins th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .tabela-admins td input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  
+  .btn-excluir {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .btn-excluir:hover {
+    background-color: #c0392b;
+  }
+  
+  .title-admins {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .admin-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .input-pesquisar {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 250px;
+  }
+  body {
     background-color: #000;
     font-family: Arial, sans-serif;
     color: white;

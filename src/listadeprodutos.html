@@ -2,234 +2,277 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/css/global.css" />
-    <link rel="stylesheet" href="/src/css/modelo.css" />
-    <link rel="stylesheet" href="/src/css/listaprodutos.css">
-    <title>ADM - Modelo</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/css/global.css" />
+  <link rel="stylesheet" href="/src/css/modelo.css" />
+  <link rel="stylesheet" href="/src/css/listaprodutos.css">
+  <title>ADM - Modelo</title>
 </head>
 
 <body>
 
+  <div class="principalcontainer">
+
+    <!-- MENU LATERAL -->
     <div class="principalcontainer">
-
-        <!-- MENU LATERAL -->
-        <aside class="aside">
-          <div class="cont-aside">
-            <h1>Admin</h1>
-            <div class="flex-menu-aside">
-              <img src="/src/images/task" alt="Ícone Cadastro" />
-              <p><a href="/src/painel.html">Ínicio</a></p>
-            </div>
-            <div class="flex-menu-aside">
-              <img src="/src/images/task" alt="Ícone Cadastro" />
-              <p><a href="/src/cadastroprodutos.html">+Cadastro</a></p>
-            </div>
-            <div class="flex-menu-aside">
-              <img src="/src/images/task" alt="Ícone Listagem" />
-              <p><a href="/src/cadastrocategoria.html">+Categoria</a></p>
-            </div>
-            <div class="flex-menu-aside">
-              <img src="/src/images/task" alt="Ícone Listagem" />
-              <p><a href="/src/listadeprodutos.html">Produtos</p></a>
-            </div>
+      <!-- MENU LATERAL -->
+      <aside class="aside">
+        <div class="cont-aside">
+          <h1>Admin</h1>
+  
+          <div class="flex-menu-aside">
+            <div class="icon-circle"></div>
+            <p><a href="/src/painel.html">Início</a></p>
           </div>
-
-            <hr style="border-color: #fff4; width: 100%; margin: 20px 0;" />
-
-            <div class="cont-aside">
-                <h1>Gerenciar</h1>
-                <div class="flex-menu-aside">
-                    <img src="/src/images/analitycs" alt="Ícone Analytics" />
-                    <p>Analitycs</p>
-                </div>
-                <div class="flex-menu-aside">
-                    <img src="/src/images/usuarios.png" alt="Ícone Usuários" />
-                    <p>Usuarios</p>
-                </div>
-                <div class="flex-menu-aside">
-                    <img src="/src/images/vendas" alt="Ícone Vendas" />
-                    <p>Vendas</p>
-                </div>
-                <div class="flex-menu-aside">
-                    <img src="/src/images/usuarios.png" alt="Ícone Usuários" />
-                    <p><a href="/src/cadastrodeadm.html">+ADM</p></a>
-                </div>
+  
+          <div class="accordion">
+            <div class="flex-menu-aside accordion-header">
+              <div class="icon-circle"></div>
+              <p>Produtos</p>
             </div>
-        </aside>
-
-        <!-- CONTEÚDO CENTRAL -->
-        <section class="aside-direito">
-
-            <!-- TOPO -->
-            <header>
-                <div class="flex-ok">
-                    <img src="/src/images/lgo-menu.svg" alt="Logo" />
-                    <h3>
-                        Bem vindo!<br />
-                        <strong>Administrador</strong>
-                    </h3>
-                </div>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <a href="/src/index.html">
-                        <img src="/src/images/logout-rounded.png" alt="Logout" />
-                        <p style="color: black">Sair</p>
-                    </a>
-                </div>
-            </header>
-
-            <!-- CONTEÚDO PRINCIPAL -->
-            <main class="conteudo">
-                <div class="produto-search">
-                <h1 class="title-produtos">Lista de Produtos</h1>
-                <input type="search" placeholder="Pesquisar produto ou ID" class="input-pesquisar" />
+            <div class="accordion-body">
+              <div class="flexnormal">
+                <div class="icon-circle"></div>
+                <p><a href="/src/cadastroprodutos.html" style="font-size: medium;">Cadastrar Produto</a></p>
+              </div>
+              <div class="flexnormal">
+                <div class="icon-circle"></div>
+                <p><a href="/src/listadeprodutos.html">Lista de Produtos</a></p>
+              </div>
+  
             </div>
-            
-                <section class="produtos-tabela">
-                  <div class="tabela-cabecalho">
-                    <span>Imagem</span>
-                    <span>Nome</span>
-                    <span>Status</span>
-                    <span>Valor</span>
-                    <span>Estoque</span>
-                    <span>ID</span>
-                    <span>Funções</span>
-                  </div>
-            
-                  <!-- PRODUTO 1 -->
-                  <div class="produto">
-                    <div class="produto-imagem">150x115</div>
-                    <div class="produto-nome">{Nome do Produto}</div>
-                    <button class="status-btn vermelho" onclick="toggleStatus(this)">ATIVO</button>
-                    <div class="produto-valor">R$32,00</div>
-                    <div class="produto-estoque">23</div>
-                    <div class="produto-id">543</div>
-                    <div class="produto-funcoes">
-                      <button class="btn-editar" disabled style="opacity: 0.5"><a href="/src/editarprodutos.html">Editar</a></button>
-                      <button class="btn-excluir">Excluir</button>
-                    </div>
-                  </div>
-            
-                  <!-- PRODUTO 2 -->
-                  <div class="produto">
-                    <div class="produto-imagem">150x115</div>
-                    <div class="produto-nome">{Nome do Produto}</div>
-                    <button class="status-btn verde" onclick="toggleStatus(this)">ATIVO</button>
-                    <div class="produto-valor">R$430,00</div>
-                    <div class="produto-estoque">36</div>
-                    <div class="produto-id">312</div>
-                    <div class="produto-funcoes">
-                        <button class="btn-editar" disabled style="opacity: 0.5"><a href="/src/editarprodutos.html">Editar</a></button>
-                      <button class="btn-excluir">Excluir</button>
-                    </div>
-                  </div>
-            
-                  <!-- PRODUTO 3 -->
-                  <div class="produto">
-                    <div class="produto-imagem">150x115</div>
-                    <div class="produto-nome">{Nome do Produto}</div>
-                    <button class="status-btn verde" onclick="toggleStatus(this)">ATIVO</button>
-                    <div class="produto-valor">R$421,00</div>
-                    <div class="produto-estoque">76</div>
-                    <div class="produto-id">234</div>
-                    <div class="produto-funcoes">
-                        <button class="btn-editar" disabled style="opacity: 0.5"><a href="/src/editarprodutos.html">Editar</a></button>
-                      <button class="btn-excluir">Excluir</button>
-                    </div>
-                  </div>
-            
-                  <!-- PRODUTO 4 -->
-                  <div class="produto">
-                    <div class="produto-imagem">150x115</div>
-                    <div class="produto-nome">{Nome do Produto}</div>
-                    <button class="status-btn vermelho" onclick="toggleStatus(this)">ATIVO</button>
-                    <div class="produto-valor">R$82,00</div>
-                    <div class="produto-estoque">54</div>
-                    <div class="produto-id">123</div>
-                    <div class="produto-funcoes">
-                        <button class="btn-editar" disabled style="opacity: 0.5"><a href="/src/editarprodutos.html">Editar</a></button>
-                      <button class="btn-excluir">Excluir</button>
-                    </div>
-                  </div>
-
-                  <!-- PRODUTO 5 -->
-
-                  <div class="produto">
-                    <div class="produto-imagem">150x115</div>
-                    <div class="produto-nome">{Nome do Produto}</div>
-                    <button class="status-btn vermelho" onclick="toggleStatus(this)">ATIVO</button>
-                    <div class="produto-valor">R$82,00</div>
-                    <div class="produto-estoque">54</div>
-                    <div class="produto-id">123</div>
-                    <div class="produto-funcoes">
-                        <button class="btn-editar" disabled style="opacity: 0.5"><a href="/src/editarprodutos.html">Editar</a></button>
-                      <button class="btn-excluir">Excluir</button>
-                    </div>
-                  </div>
-
-                  <!-- PRODUTO 6 -->
-
-                  <div class="produto">
-                    <div class="produto-imagem">150x115</div>
-                    <div class="produto-nome">{Nome do Produto}</div>
-                    <button class="status-btn vermelho" onclick="toggleStatus(this)">ATIVO</button>
-                    <div class="produto-valor">R$0</div>
-                    <div class="produto-estoque">54</div>
-                    <div class="produto-id">123</div>
-                    <div class="produto-funcoes">
-                        <button class="btn-editar" disabled style="opacity: 0.5"><a href="/src/editarprodutos.html">Editar</a></button>
-                      <button class="btn-excluir">Excluir</button>
-                    </div>
-                  </div>
-
-
-                <!-- Produto 7 -->
-                <div class="produto">
-                    <div class="produto-imagem">150x115</div>
-                    <div class="produto-nome">{Nome do Produto}</div>
-                    <button class="status-btn vermelho" onclick="toggleStatus(this)">ATIVO</button>
-                    <div class="produto-valor">R$82,00</div>
-                    <div class="produto-estoque">54</div>
-                    <div class="produto-id">123</div>
-                    <div class="produto-funcoes">
-                        <button class="btn-editar" disabled style="opacity: 0.5"><a href="/src/editarprodutos.html">Editar</a></button>
-                      <button class="btn-excluir">Excluir</button>
-                    </div>
-                  </div>
-
-                  <!-- Produto 8 -->
-                  <div class="produto">
-                    <div class="produto-imagem">150x115</div>
-                    <div class="produto-nome">{Nome do Produto}</div>
-                    <button class="status-btn vermelho" onclick="toggleStatus(this)">ATIVO</button>
-                    <div class="produto-valor">R$82,00</div>
-                    <div class="produto-estoque">54</div>
-                    <div class="produto-id">123</div>
-                    <div class="produto-funcoes">
-                        <button class="btn-editar" disabled style="opacity: 0.5"><a href="/src/editarprodutos.html">Editar</a></button>
-                      <button class="btn-excluir">Excluir</button>
-                    </div>
-                  </div>
-                </section>
-            
-                <div class="paginacao">
-                  <button>1</button>
-                  <button>2</button>
-                  <button>3</button>
-                  <button>4</button>
-                  <button>5</button>
-                  <button>6</button>
-                  <button>7</button>
+  
+            <!-- Categoria -->
+  
+            <div class="accordion">
+              <div class="flex-menu-aside accordion-header">
+                <div class="icon-circle"></div>
+                <p>Categoria</p>
+              </div>
+              <div class="accordion-body">
+                <div class="flexnormal">
+                  <div class="icon-circle"></div>
+                  <p><a href="/src/cadastrocategoria.html" style="font-size: medium;">Cadastrar Categoria</a></p>
                 </div>
+                <div class="flexnormal">
+                  <div class="icon-circle"></div>
+                  <p><a href="/src/listadecategoria.html" style="font-size: medium;">Lista de Categorias</a></p>
+                </div>
+          </div>
+  
+  
+          <!-- Administradores -->
+  
+          <div class="accordion">
+            <div class="flex-menu-aside accordion-header">
+              <div class="icon-circle"></div>
+              <p>Administradores</p>
+            </div>
+            <div class="accordion-body">
+              <div class="flexnormal">
+                <div class="icon-circle"></div>
+                <p><a href="/src/cadastrodeadm.html">Cadastrar</a></p>
+              </div>
+              <div class="flexnormal">
+                <div class="icon-circle"></div>
+                <p><a href="/src/listadeadm.html">Listagem</a></p>
+              </div>
+            </div>
+  
+        </div>
+  
+        <hr style="border-color: #fff4; width: 100%; margin: 20px 0;" />
+  
+        <div class="cont-aside">
+          <h1>Gerenciar</h1>
+  
+            <div class="flex-menu-aside">
+              <div class="icon-circle"></div>
+              <p>Analitycs</p>
+            </div>
+  
+            <div class="flex-menu-aside">
+              <div class="icon-circle"></div>
+              <p>Usuários</p>
+            </div>
+  
+            <div class="flex-menu-aside">
+              <div class="icon-circle"></div>
+              <p>Vendas</p>
+            </div>
+  
+          </div>
+        </div>
+      </aside>
 
-            </main>
+    <!-- CONTEÚDO CENTRAL -->
+    <section class="aside-direito">
 
-        </section>
+      <!-- TOPO -->
+      <header>
+        <div class="flex-ok">
+          <img src="/src/images/lgo-menu.svg" alt="Logo" />
+          <h3>
+            Bem vindo!<br />
+            <strong>Administrador</strong>
+          </h3>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a href="/src/index.html">
+            <img src="/src/images/logout-rounded.png" alt="Logout" />
+            <p style="color: black">Sair</p>
+          </a>
+        </div>
+      </header>
 
-    </div>
+      <!-- CONTEÚDO PRINCIPAL -->
+      <main class="conteudo">
+        <div class="produto-search">
+          <h1 class="title-produtos">Lista de Produtos</h1>
+          <input type="search" placeholder="Pesquisar produto ou ID" class="input-pesquisar" />
+        </div>
 
-    <script src="/src/javascript/togglestatusproduct.js"></script>
+        <table class="tabela-produtos">
+          <thead>
+            <tr>
+              <th>Imagem</th>
+              <th>Nome</th>
+              <th>Status</th>
+              <th>Valor</th>
+              <th>Estoque</th>
+              <th>ID</th>
+              <th>Funções</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="produto-imagem">150x115</div>
+              </td>
+              <td>{Nome do Produto}</td>
+              <td><button class="status-btn verde" onclick="toggleStatus(this)">ATIVO</button></td>
+              <td>R$32,00</td>
+              <td>23</td>
+              <td>543</td>
+              <td>
+                <button class="btn-editar"><a href="/src/editarprodutos.html">Editar</a></button>
+                <button class="btn-excluir">Excluir</button>
+              </td>
+            </tr>
+            
+
+            <tr>
+              <td>
+                <div class="produto-imagem">150x115</div>
+              </td>
+              <td>{Nome do Produto}</td>
+              <td><button class="status-btn verde" onclick="toggleStatus(this)">ATIVO</button></td>
+              <td>R$32,00</td>
+              <td>23</td>
+              <td>543</td>
+              <td>
+                <button class="btn-editar"><a href="/src/editarprodutos.html">Editar</a></button>
+                <button class="btn-excluir">Excluir</button>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                <div class="produto-imagem">150x115</div>
+              </td>
+              <td>{Nome do Produto}</td>
+              <td><button class="status-btn verde" onclick="toggleStatus(this)">ATIVO</button></td>
+              <td>R$32,00</td>
+              <td>23</td>
+              <td>543</td>
+              <td>
+                <button class="btn-editar"><a href="/src/editarprodutos.html">Editar</a></button>
+                <button class="btn-excluir">Excluir</button>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                <div class="produto-imagem">150x115</div>
+              </td>
+              <td>{Nome do Produto}</td>
+              <td><button class="status-btn verde" onclick="toggleStatus(this)">ATIVO</button></td>
+              <td>R$32,00</td>
+              <td>23</td>
+              <td>543</td>
+              <td>
+                <button class="btn-editar"><a href="/src/editarprodutos.html">Editar</a></button>
+                <button class="btn-excluir">Excluir</button>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                <div class="produto-imagem">150x115</div>
+              </td>
+              <td>{Nome do Produto}</td>
+              <td><button class="status-btn verde" onclick="toggleStatus(this)">ATIVO</button></td>
+              <td>R$32,00</td>
+              <td>23</td>
+              <td>543</td>
+              <td>
+                <button class="btn-editar"><a href="/src/editarprodutos.html">Editar</a></button>
+                <button class="btn-excluir">Excluir</button>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                <div class="produto-imagem">150x115</div>
+              </td>
+              <td>{Nome do Produto}</td>
+              <td><button class="status-btn verde" onclick="toggleStatus(this)">ATIVO</button></td>
+              <td>R$32,00</td>
+              <td>23</td>
+              <td>543</td>
+              <td>
+                <button class="btn-editar"><a href="/src/editarprodutos.html">Editar</a></button>
+                <button class="btn-excluir">Excluir</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="produto-imagem">150x115</div>
+              </td>
+              <td>{Nome do Produto}</td>
+              <td><button class="status-btn verde" onclick="toggleStatus(this)">ATIVO</button></td>
+              <td>R$32,00</td>
+              <td>23</td>
+              <td>543</td>
+              <td>
+                <button class="btn-editar"><a href="/src/editarprodutos.html">Editar</a></button>
+                <button class="btn-excluir">Excluir</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <div class="paginacao">
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+        </div>
+      </main>
+    </section>
+
+
+
+  </div>
+
+  <script src="/src/javascript/togglestatusproduct.js"></script>
+  <script src="/src/javascript/accordion.js"></script>
 </body>
 
 </html>
