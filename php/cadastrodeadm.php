@@ -1,4 +1,6 @@
+
 <?php
+// SESSÃO COM ERROS !!!!!!! TEM QUE ADAPTAR PARA SQLITE
 session_start();
 require_once('conexao.php');
 

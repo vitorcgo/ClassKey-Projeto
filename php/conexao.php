@@ -1,5 +1,6 @@
 <?php
 // Caminho do arquivo do banco de dados SQLite
+// TEM UM ERRO POIS TODOS AS SESSÇOES ESTÁ SAINDO A MENSAGEM DE CONEXÃO DE BANCO DE DADOS AO INVÊS DE UM SÓ LOCAL.
 $databasePath = __DIR__ . '/../bd/classkey.db';
 
 $dsn = "sqlite:$databasePath";

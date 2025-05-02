@@ -36,7 +36,7 @@
   font-family: Poppins;
   margin-top: 20px;
   margin-left: 10px;
-  padding-left: 2px;
+  padding-left: 10px
 }
 
 .header-log-car p {
@@ -54,12 +54,14 @@
   width: 465px;
   height: 34px;
   border-radius: 100px;
+  padding:4px;
 }
 
 .navbar {
   display: flex;
   gap: 17px;
   list-style: none;
+  
 }
 
 .navbar a {
