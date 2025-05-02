@@ -1,6 +1,6 @@
 <?php
 // Caminho do arquivo do banco de dados SQLite
-$databasePath = __DIR__ . '/bd/classkey.db';
+$databasePath = __DIR__ . '/../bd/classkey.db';
 
 $dsn = "sqlite:$databasePath";
 
