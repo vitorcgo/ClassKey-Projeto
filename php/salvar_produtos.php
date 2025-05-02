@@ -1,13 +1,15 @@
 <?php
-// Conexão com o banco
-$host = 'localhost';
-$db = 'bd/Protótipo/ClassKey2.sql';
-$user = 'root';
-$pass = 'root';
+// Caminho relativo para o banco de dados SQLite
+$databasePath = __DIR__ . '/bd/classkey.db';
 
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    die("Erro na conexão: " . $conn->connect_error);
+$dsn = "sqlite:$databasePath";
+
+try {
+    // Criando a conexão com o banco de dados SQLite
+    $pdo = new PDO($dsn);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Habilita a exibição de erros
+} catch (PDOException $e) {
+    die("Erro ao conectar ao banco de dados SQLite: " . $e->getMessage());
 }
 
 // Pegando os dados do formulário
