@@ -13,8 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Captura os dados conforme os names do HTML
     $nome = $_POST['nome'];
     $valor = $_POST['valor'];
-    $categoria = $_POST['categoria-options'];
-    //$quantidade = $_POST['qtd'];
+    $categoria = $_POST['categorias'];
     //$descricao = $_POST['descricao'];
 
     // Validação básica
@@ -23,38 +22,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    if ($valor < 0 ) {
+    if ($valor <= 0 ) {
         echo "<div class='mensagem-erro'>Por favor, preencha o preco com um valor positivo!</div>";
+        exit();
     }
-    /*if ($desconto > 99)
-    {
-        echo "<div class='mensagem-erro'>O desconto não pode ser de 100%!</div>";
-    }*/
 
     try {
-        $sql = "INSERT INTO produto (nome, preco, status) 
-        VALUES (:nome, :preco, :status)";
+        // Inicia transação para garantir integridade
+        $pdo->beginTransaction();
+
+        // Cadastra o produto
+        $sql = "INSERT INTO produto (nome, preco, status) VALUES (:nome, :preco, :status)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
         $stmt->bindParam(':preco', $valor, PDO::PARAM_STR);
-        $status = 'ativo'; 
+        $status = 'ativo';
         $stmt->bindParam(':status', $status, PDO::PARAM_STR);
         $stmt->execute();
 
         $produto_id = $pdo->lastInsertId();
 
-        $sqlRelacao = "INSERT INTO produto_categoria (produto_id, categoria_id) 
-               VALUES (:produto_id, :categoria_id)";
+        // Associa cada categoria selecionada
+        $sqlRelacao = "INSERT INTO produto_categoria (produto_id, categoria_id) VALUES (:produto_id, :categoria_id)";
         $stmtRel = $pdo->prepare($sqlRelacao);
-        $stmtRel->bindParam(':produto_id', $produto_id, PDO::PARAM_INT);
-        $stmtRel->bindParam(':categoria_id', $categoria, PDO::PARAM_INT);
-        $stmtRel->execute();
+        
+        foreach ($categorias as $categoria_id) {
+            $stmtRel->bindParam(':produto_id', $produto_id, PDO::PARAM_INT);
+            $stmtRel->bindParam(':categoria_id', $categoria_id, PDO::PARAM_INT);
+            $stmtRel->execute();
+        }
 
+        $pdo->commit();
+        echo "<div class='mensagem-sucesso'>Produto cadastrado com sucesso com ".count($categorias)." categorias!</div>";
 
-
-        echo "<div class='mensagem-sucesso'>Produto cadastrado com sucesso!</div>";
     } catch (PDOException $e) {
-        echo "<div class='mensagem-erro'>Erro ao cadastrar: " . $e->getMessage() . "</div>";
+        $pdo->rollBack();
+        echo "<div class='mensagem-erro'>Erro ao cadastrar: ".$e->getMessage()."</div>";
     }
 }
 ?>
