@@ -57,51 +57,51 @@
                 <div class="icon-circle"></div>
                 <p><a href="/src/listadecategoria.html" style="font-size: medium;">Lista de Categorias</a></p>
               </div>
-        </div>
-
-
-        <!-- Administradores -->
-
-        <div class="accordion">
-          <div class="flex-menu-aside accordion-header">
-            <div class="icon-circle"></div>
-            <p>Administradores</p>
-          </div>
-          <div class="accordion-body">
-            <div class="flexnormal">
-              <div class="icon-circle"></div>
-              <p><a href="/src/cadastrodeadm.html">Cadastrar</a></p>
             </div>
-            <div class="flexnormal">
-              <div class="icon-circle"></div>
-              <p><a href="/src/listadeadm.html">Listagem</a></p>
+
+
+            <!-- Administradores -->
+
+            <div class="accordion">
+              <div class="flex-menu-aside accordion-header">
+                <div class="icon-circle"></div>
+                <p>Administradores</p>
+              </div>
+              <div class="accordion-body">
+                <div class="flexnormal">
+                  <div class="icon-circle"></div>
+                  <p><a href="/src/cadastrodeadm.html">Cadastrar</a></p>
+                </div>
+                <div class="flexnormal">
+                  <div class="icon-circle"></div>
+                  <p><a href="/src/listadeadm.html">Listagem</a></p>
+                </div>
+              </div>
+
+            </div>
+
+            <hr style="border-color: #fff4; width: 100%; margin: 20px 0;" />
+
+            <div class="cont-aside">
+              <h1>Gerenciar</h1>
+
+              <div class="flex-menu-aside">
+                <div class="icon-circle"></div>
+                <p>Analitycs</p>
+              </div>
+
+              <div class="flex-menu-aside">
+                <div class="icon-circle"></div>
+                <p>Usuários</p>
+              </div>
+
+              <div class="flex-menu-aside">
+                <div class="icon-circle"></div>
+                <p>Vendas</p>
+              </div>
+
             </div>
           </div>
-
-      </div>
-
-      <hr style="border-color: #fff4; width: 100%; margin: 20px 0;" />
-
-      <div class="cont-aside">
-        <h1>Gerenciar</h1>
-
-          <div class="flex-menu-aside">
-            <div class="icon-circle"></div>
-            <p>Analitycs</p>
-          </div>
-
-          <div class="flex-menu-aside">
-            <div class="icon-circle"></div>
-            <p>Usuários</p>
-          </div>
-
-          <div class="flex-menu-aside">
-            <div class="icon-circle"></div>
-            <p>Vendas</p>
-          </div>
-
-        </div>
-      </div>
     </aside>
 
     <!-- CONTEÚDO CENTRAL -->
@@ -125,20 +125,60 @@
       <!-- CONTEÚDO PRINCIPAL -->
       <main class="conteudo-categoria">
         <h1>Cadastro de Categoria</h1>
-        <form action="">
-            <label for="categoria"></label>
-            <input type="text" name="categoria" id="categoria" placeholder="Nome da Categoria">
-            <br>
-            <label for="submit-categoria"></label>
-            <input type="submit" value="Cadastrar" class="submit-categoria">
+        <form id="form-categoria">
+          <label for="categoria"></label>
+          <input type="text" name="categoria" id="categoria" placeholder="Nome da Categoria" required>
+          <br>
+          <input type="submit" value="Cadastrar" class="submit-categoria">
         </form>
-        
+
       </main>
 
     </section>
 
   </div>
   <script src="/src/javascript/accordion.js"></script>
+  <script>
+    document.getElementById('form-categoria').addEventListener('submit', function (event) {
+      event.preventDefault(); // Previne o envio padrão do formulário
+
+      const categoriaInput = document.getElementById('categoria');
+      const categoria = categoriaInput.value.trim();
+
+      if (!categoria) {
+        alert('Por favor, insira o nome da categoria.');
+        return;
+      }
+
+      fetch('php/cadastro_categoria.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `categoria=${categoria}`
+      })
+        .then(res => res.text())  // Vamos capturar a resposta como texto (não JSON, para diagnóstico)
+        .then(data => {
+          console.log(data);  // Verifique o que foi retornado pelo PHP
+          try {
+            const jsonData = JSON.parse(data);  // Tentamos fazer o parse para JSON
+            if (jsonData.status === 'sucesso') {
+              alert(jsonData.mensagem);
+              categoriaInput.value = '';
+            } else {
+              alert(jsonData.mensagem);
+            }
+          } catch (err) {
+            alert('Erro ao tentar processar a resposta.');
+            console.error('Erro ao processar a resposta:', err);
+          }
+        })
+        .catch(err => {
+          alert('Erro no envio do formulário.');
+          console.error('Erro no envio do formulário:', err);
+        });
+    });
+  </script>
 </body>
 
 </html>
