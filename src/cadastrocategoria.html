@@ -138,47 +138,8 @@
 
   </div>
   <script src="/src/javascript/accordion.js"></script>
-  <script>
-    document.getElementById('form-categoria').addEventListener('submit', function (event) {
-      event.preventDefault(); // Previne o envio padrão do formulário
+  <script src="/src/javascript/ajax_cadastrocategoria.js"></script>
 
-      const categoriaInput = document.getElementById('categoria');
-      const categoria = categoriaInput.value.trim();
-
-      if (!categoria) {
-        alert('Por favor, insira o nome da categoria.');
-        return;
-      }
-
-      fetch('php/cadastro_categoria.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: `categoria=${categoria}`
-      })
-        .then(res => res.text())  // Vamos capturar a resposta como texto (não JSON, para diagnóstico)
-        .then(data => {
-          console.log(data);  // Verifique o que foi retornado pelo PHP
-          try {
-            const jsonData = JSON.parse(data);  // Tentamos fazer o parse para JSON
-            if (jsonData.status === 'sucesso') {
-              alert(jsonData.mensagem);
-              categoriaInput.value = '';
-            } else {
-              alert(jsonData.mensagem);
-            }
-          } catch (err) {
-            alert('Erro ao tentar processar a resposta.');
-            console.error('Erro ao processar a resposta:', err);
-          }
-        })
-        .catch(err => {
-          alert('Erro no envio do formulário.');
-          console.error('Erro no envio do formulário:', err);
-        });
-    });
-  </script>
 </body>
 
 </html>
