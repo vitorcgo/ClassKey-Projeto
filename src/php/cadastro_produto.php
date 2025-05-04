@@ -14,10 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
     $valor = $_POST['valor'];
     $categoria = $_POST['categorias'];
-    //$descricao = $_POST['descricao'];
+    $descricao = $_POST['descricao'];
 
     // Validação básica
-    if (empty($nome) || empty($valor) || empty($categoria)) {
+    if (empty($nome) || empty($valor) || empty($categoria) || empty($descricao)) {
         echo "<div class='mensagem-erro'>Por favor, preencha todos os campos!</div>";
         exit();
     }
@@ -32,10 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo->beginTransaction();
 
         // Cadastra o produto
-        $sql = "INSERT INTO produto (nome, preco, status) VALUES (:nome, :preco, :status)";
+        $sql = "INSERT INTO produto (nome, preco, status, descricao) VALUES (:nome, :preco, :status, :descricao)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
         $stmt->bindParam(':preco', $valor, PDO::PARAM_STR);
+        $stmt->bindParam(':descricao', $descricao, PDO::PARAM_STR);
         $status = 'ativo';
         $stmt->bindParam(':status', $status, PDO::PARAM_STR);
         $stmt->execute();
