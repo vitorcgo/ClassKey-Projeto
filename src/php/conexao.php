@@ -1,5 +1,5 @@
 <?php
-$databasePath = realpath(__DIR__ . '/bd/classkey.db');
+$databasePath = realpath(__DIR__ . '/db/classkey.db');
 
 if ($databasePath === false) {
     die("Erro: o arquivo do banco de dados não foi encontrado.");
