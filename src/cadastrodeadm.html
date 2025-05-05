@@ -125,24 +125,25 @@
       <!-- CONTEÚDO PRINCIPAL -->
       <main class="conteudo-adm">
         <h1>Cadastro de Usuario Admin</h1>
-        <form action="">
-            <label for="cadastroadmin"></label>
-            <input type="email" name="cadastroadmin" id="cadastroadmin" placeholder="E-mail do Administrador">
-            <br>
-            <label for="cadastroadmin"></label>
-            <input type="password" name="passwordadmin" id="passwordadmin" placeholder="Senha do Administrador">
-            <br>
-            <label for="submit-categoria"></label>
-            <input type="submit" value="Cadastrar" class="submit-adm">
-        </form>
-        
+        <form action="/src/php/cadastrar_admin.php" method="post">
+          <label for="cadastroadmin"></label>
+          <input type="email" name="cadastroadmin" id="cadastroadmin" placeholder="E-mail do Administrador">
+          <br>
+          <label for="passwordadmin"></label>
+          <input type="password" name="passwordadmin" id="passwordadmin" placeholder="Senha do Administrador">
+          <br>
+          <label for="submit-categoria"></label>
+          <input type="submit" value="Cadastrar" class="submit-adm">
+      </form>
+      
       </main>
 
     </section>
 
   </div>
 
-  <script src="/src/javascript/accordion.js"></script>ip
+  <script src="/src/javascript/accordion.js"></script>
+  <script src="/src/javascript/cadastraradmin.js"></script>
 
 </body>
 

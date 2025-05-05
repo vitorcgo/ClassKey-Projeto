@@ -190,7 +190,7 @@
     gap: 100px;;
   }
 
-  .tabela-produtos {
+  .tabela-adm {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
@@ -199,24 +199,24 @@
     overflow: hidden;
 }
 
-.tabela-produtos th,
-.tabela-produtos td {
+.tabela-adm th,
+.tabela-adm td {
     padding: 12px 10px;
     text-align: center;
     border-bottom: 1px solid #333;
     color: white;
 }
 
-.tabela-produtos th {
+.tabela-adm th {
     background-color: #111;
     font-weight: bold;
     color: white;
 }
 
-.tabela-produtos tr:nth-child(even) {
+.tabela-adm tr:nth-child(even) {
     background-color: #181818;
 }
 
-.tabela-produtos tr:hover {
+.tabela-adm tr:hover {
     background-color: #222;
 }
