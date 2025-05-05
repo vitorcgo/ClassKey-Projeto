@@ -130,58 +130,43 @@
             <h1>Cadastro de Produtos</h1>
           </div>
           <!-- Formulario de Cadastro -->
-          <form id="form-produto" action="salvar_produtos.php" method="post">
-            <label for="nome-do-produtos"></label>
-            <input type="text" name="nome" id="" placeholder="Nome do Produto">
-            <br>
-            <label for="valor"></label>
-            <input type="number" name="" id="" placeholder="Valor do Produto">
-            <br>
-            <label for="categoria-options"></label>
-            <select name="categoria-options" id="categoria-options">
-              <option value="">Escolha a Categoria</option>
-              <option value="Ação">Ação</option>
-              <option value="Aventura">Aventura</option>
-              <option value="RPG">RPG</option>
-              <option value="FPS">FPS</option>
-              <option value="Esporte">Esporte</option>
-              <option value="Corrida">Corrida</option>
-              <option value="Estratégia">Estratégia</option>
-              <option value="Simulação">Simulação</option>
-              <option value="Terror">Terror</option>
-              <option value="Plataforma">Plataforma</option>
-              <option value="Multiplayer Online">Multiplayer Online</option>
-            </select>
-            <br>            
-            <label for="quantidade"></label>
-            <input type="number" name="" id="" placeholder="Quantidade do Produto">
-            <br>
-            <label for="desconto"></label>
-            <input type="number" name="" id="" placeholder="Desconto do Produto">
-            <br>
-            <label for="descricao"></label>
-            <input type="text" name="descricao" id="" placeholder="Descrição do Produto" class="input-descricao">
-            <br>
-            <div class="title-form-produtos">
-              <label for="cadastrar-produtos"></label>
-              <input type="submit" value="Cadastrar" class="input-submit-cadastro">
-              <br>
-              <label for="limpar-form"></label>
-              <input type="button" value="Limpar" class="input-submit-cadastro" onclick="limparFormulario()">
-            </div>
+          <form id="form-produto" action="/src/php/cadastrar_produto.php" method="POST" enctype="multipart/form-data">
+            <article class="form-left">
+              <label for="nome"></label>
+              <input type="text" name="nome" id="nome" placeholder="Nome do Produto" required>
+              
+              <label for="preco"></label>
+              <input type="number" step="0.01" name="preco" id="preco" placeholder="Valor do Produto" required>
+          
+              <label for="categoria_id"></label>
+              <select name="categoria_id" id="categoria-options" required>
+                  <option value="">Escolha a Categoria</option>
+              </select>
+              
+             
+          
+              <label for="quantidade"></label>
+              <input type="number" name="quantidade" id="quantidade" placeholder="Quantidade do Produto" required>
+          
+              <label for="descricao"></label>
+              <input type="text" name="descricao" id="descricao" placeholder="Descrição do Produto" class="input-descricao" required>
+          
+              <div class="title-form-produtos">
+                <input type="submit" value="Cadastrar" class="input-submit-cadastro">
+                <input type="button" value="Limpar" class="input-submit-cadastro" onclick="limparFormulario()">
+              </div>
+            </article>
+          
+            <article class="form-right">
+              <div id="preview">
+                <span>Nenhuma imagem selecionada</span>
+              </div>
+              
+              <label for="imagem"></label>
+              <input type="file" id="imagemInput" name="imagem" accept="image/*" class="filereader" required>
+            </article>
           </form>
-        </article>
-
-        <!-- Inclusão de Imagem -->
-        <article>
-          <div id="preview">
-            <span>Nenhuma imagem selecionada</span>
-          </div>
-
-          <label for="imagem"></label>
-          <input type="file" id="imagemInput" accept="image/*" class="filereader">
-        </article>
-        
+          
       </main>
 
     </section>
@@ -190,5 +175,6 @@
   <script src="/src/javascript/limparformulario.js"></script>
   <script src="/src/javascript/filereader.js"></script>
   <script src="/src/javascript/accordion.js"></script>
+  <script src="/src/javascript/categorias.js"></script>
 </body>
 </html>

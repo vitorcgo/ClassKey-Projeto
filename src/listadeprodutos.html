@@ -140,22 +140,24 @@
               <th>Imagem</th>
               <th>Nome</th>
               <th>Status</th>
+              <th>Categoria</th>
               <th>Valor</th>
               <th>Estoque</th>
               <th>ID</th>
               <th>Funções</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="tabela-produtos">
             <tr>
               <td>
-                <div class="produto-imagem">150x115</div>
+                <div class="produto-imagem"></div>
               </td>
-              <td>{Nome do Produto}</td>
-              <td><button class="status-btn verde" onclick="toggleStatus(this)">ATIVO</button></td>
-              <td>R$32,00</td>
-              <td>23</td>
-              <td>543</td>
+              <td></td>
+              <td><button class="status-btn verde"></button></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
               <td>
                 <button class="btn-editar"><a href="/src/editarprodutos.html">Editar</a></button>
                 <button class="btn-excluir">Excluir</button>
@@ -177,8 +179,8 @@
 
   </div>
 
-  <script src="/src/javascript/togglestatusproduct.js"></script>
   <script src="/src/javascript/accordion.js"></script>
+  <script src="/src/javascript/listar_produtos.js"></script>
 </body>
 
 </html>
