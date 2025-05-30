@@ -1,97 +1,159 @@
-.tabela-admins {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    box-shadow: 0 0 10px #0001;
-    border-radius: 10px;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-  }
-  
-  .tabela-admins th, .tabela-admins td {
-    padding: 14px 18px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .tabela-admins th {
-    background-color: #f4f4f4;
-    font-weight: bold;
-  }
-  
-  .tabela-admins td input[type="checkbox"] {
-    transform: scale(1.2);
-    cursor: pointer;
-  }
-  
-  .btn-excluir {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .btn-excluir:hover {
-    background-color: #c0392b;
-  }
-  
-  .title-admins {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .admin-search {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .input-pesquisar {
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    width: 250px;
-  }
-  body {
-    background-color: #000;
-    font-family: Arial, sans-serif;
-    color: white;
+/* Estilos para a página de listagem de administradores */
+
+/* Header da página */
+.admin-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title-admins {
+  color: var(--text-light);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  position: relative;
+}
+
+.title-admins::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+/* Campo de busca estilizado */
+.input-pesquisar {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+  padding: 10px 16px;
+  border-radius: var(--border-radius-md);
+  width: 280px;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.input-pesquisar:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.input-pesquisar::placeholder {
+  color: var(--text-muted);
+}
+
+/* Tabela estilizada */
+.tabela-produtos {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+}
+
+.tabela-produtos th {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tabela-produtos td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-light);
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+/* Torne as células centralizadas exceto a primeira e a última */
+.tabela-produtos td:not(:first-child):not(:last-child),
+.tabela-produtos th:not(:first-child):not(:last-child) {
+  text-align: center;
+}
+
+.tabela-produtos td input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+body {
+    background-color: var(--body-bg);
+    font-family: var(--font-family);
+    color: var(--text-light);
     margin: 0;
     padding: 0;
   }
   
   .main-produtos {
-    padding: 2rem;
+    padding: 24px;
     max-width: 1200px;
     margin: 0 auto;
   }
   
   .title-produtos {
-    color: #00ff00;
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .title-produtos::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 4px;
   }
   
   .input-pesquisar {
-    width: 100%;
-    max-width: 400px;
-    margin-bottom: 1rem;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    text-align: center;
-    
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    padding: 10px 16px;
+    border-radius: var(--border-radius-md);
+    width: 280px;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    outline: none;
+  }
+  
+  .input-pesquisar:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-light);
+  }
+  
+  .input-pesquisar::placeholder {
+    color: var(--text-muted);
   }
   
   .produtos-tabela {
-    background-color: #111;
-    padding: 1rem;
-    border-radius: 10px;
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
   }
   
   .tabela-cabecalho,
@@ -100,123 +162,150 @@
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 2fr;
     gap: 1rem;
     align-items: center;
-    padding: 0.5rem 0;
+    padding: 0.75rem 0;
   }
   
   .tabela-cabecalho {
-    font-weight: bold;
-    border-bottom: 2px solid #333;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
   }
   
   .produto {
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+  }
+  
+  .produto:hover {
+    background-color: var(--hover-bg);
   }
   
   .produto-imagem {
-    background-color: white;
-    color: black;
+    background-color: var(--darker-bg);
+    color: var(--text-light);
     width: 100%;
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 14px;
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
   }
   
   .status-btn {
-    padding: 5px 10px;
-    border-radius: 20px;
+    padding: 6px 12px;
+    border-radius: var(--border-radius-pill);
     font-size: 12px;
-    font-weight: bold;
+    font-weight: 600;
     border: none;
     cursor: pointer;
-    transition: 0.2s;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .status-btn.verde {
-    background-color: green;
-    color: white;
+    background-color: var(--success-color);
+    color: var(--success-text);
   }
   
   .status-btn.vermelho {
-    background-color: red;
-    color: white;
+    background-color: var(--danger-color);
+    color: var(--danger-text);
   }
   
   .produto.desativado {
     opacity: 0.6;
   }
   
+  .btn-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+  
   .btn-editar {
-    background-color: #00ff00;
+    background-color: var(--primary-light);
+    color: var(--primary-color);
     border: none;
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    font-size: 0.875rem;
     cursor: pointer;
+    transition: all 0.2s ease;
+    margin-right: 8px;
+  }
+  
+  .btn-editar:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .btn-editar a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
   }
   
   .btn-excluir {
-    background-color: red;
+    background-color: rgba(239, 68, 68, 0.15);
+    color: var(--danger-color);
     border: none;
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-weight: bold;
-    color: white;
+    padding: 8px 16px;
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    font-size: 0.875rem;
     cursor: pointer;
-    margin-left: 5px;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-excluir:hover {
+    background-color: var(--danger-color);
+    color: white;
   }
   
   .paginacao {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
-    gap: 5px;
+    margin-top: 2rem;
+    gap: 8px;
   }
   
   .paginacao button {
-    padding: 4px 12px;
-    border: none;
-    border-radius: 20px;
-    background-color: white;
-    color: black;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--card-bg);
+    color: var(--text-light);
     cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+  }
+  
+  .paginacao button:hover {
+    background-color: var(--darker-bg);
+  }
+  
+  .paginacao button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
   }
   
   .produto-search {
     display: flex;
-    padding: 10px;
+    padding: 16px 0;
     align-items: center;
-    gap: 100px;;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
   }
 
-  .tabela-adm {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    background-color: #111;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.tabela-adm th,
-.tabela-adm td {
-    padding: 12px 10px;
-    text-align: center;
-    border-bottom: 1px solid #333;
-    color: white;
-}
-
-.tabela-adm th {
-    background-color: #111;
-    font-weight: bold;
-    color: white;
-}
-
-.tabela-adm tr:nth-child(even) {
-    background-color: #181818;
-}
-
-.tabela-adm tr:hover {
-    background-color: #222;
-}
+  /* Estilos já definidos na classe tabela-produtos acima */

@@ -1,239 +1,247 @@
-.tabela-produtos {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    background-color: #111;
-    border-radius: 10px;
-    overflow: hidden;
+/* Estilos para a página de listagem de categorias */
+
+/* Header da página */
+.produto-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.tabela-produtos th,
-.tabela-produtos td {
-    padding: 12px 10px;
-    text-align: center;
-    border-bottom: 1px solid #333;
-    color: white;
+.title-produtos {
+  color: var(--text-light);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  position: relative;
+}
+
+.title-produtos::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+/* Tabela estilizada */
+.tabela-produtos {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
 }
 
 .tabela-produtos th {
-    background-color: #111;
-    font-weight: bold;
-    color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.tabela-produtos tr:nth-child(even) {
-    background-color: #181818;
+.tabela-produtos td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-light);
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+/* Torne as células centralizadas exceto a primeira e a última */
+.tabela-produtos td:not(:first-child):not(:last-child),
+.tabela-produtos th:not(:first-child):not(:last-child) {
+  text-align: center;
+}
+
+.tabela-produtos th:first-child,
+.tabela-produtos td:first-child {
+  padding-left: 24px;
+}
+
+.tabela-produtos th:last-child,
+.tabela-produtos td:last-child {
+  padding-right: 24px;
+  text-align: right;
+}
+
+.tabela-produtos tr:last-child td {
+  border-bottom: none;
 }
 
 .tabela-produtos tr:hover {
-    background-color: #222;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.tabela-produtos tbody tr {
+  transition: all 0.2s ease;
+}
+
+/* Botões de ação */
+.btn-editar, .btn-excluir {
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .btn-editar {
-    background-color: #00ff00;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  margin-right: 8px;
+}
+
+.btn-editar:hover {
+  background-color: var(--primary-color);
+  color: white;
 }
 
 .btn-excluir {
-    background-color: red;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    margin-left: 5px;
+  background-color: rgba(239, 68, 68, 0.15);
+  color: var(--danger-color);
+}
+
+.btn-excluir:hover {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.btn-editar a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+/* Botão de status */
+.status-btn {
+  padding: 6px 12px;
+  border-radius: var(--border-radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
 }
 
 .status-btn.verde {
-    background-color: green;
-    color: white;
+  background-color: rgba(16, 185, 129, 0.15);
+  color: var(--success-color);
 }
 
 .status-btn.vermelho {
-    background-color: red;
-    color: white;
+  background-color: rgba(239, 68, 68, 0.15);
+  color: var(--danger-color);
 }
 
 .produto.desativado {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
-    .status-btn {
-        padding: 5px 10px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: bold;
-        border: none;
-        cursor: pointer;
-        transition: 0.2s;
-    }
+/* Campo de busca estilizado */
+.input-pesquisar {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+  padding: 10px 16px;
+  border-radius: var(--border-radius-md);
+  width: 280px;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
 
-    body {
-        background-color: #000;
-        font-family: Arial, sans-serif;
-        color: white;
-        margin: 0;
-        padding: 0;
-      }
+.input-pesquisar:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.input-pesquisar::placeholder {
+  color: var(--text-muted);
+}
       
-      .main-produtos {
-        padding: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
+      /* Paginação */
+.paginacao {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 8px;
+}
+
+.paginacao button {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  background-color: var(--card-bg);
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.paginacao button:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.paginacao button.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
       
-      .title-produtos {
-        color: #00ff00;
-        font-size: 2.5rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-      }
-      
-      .input-pesquisar {
-        width: 100%;
-        max-width: 400px;
-        margin-bottom: 1rem;
-        padding: 10px;
-        border-radius: 10px;
-        border: none;
-        text-align: center;
-        
-      }
-      
-      .produtos-tabela {
-        background-color: #111;
-        padding: 1rem;
-        border-radius: 10px;
-      }
-      
-      .tabela-cabecalho,
-      .produto {
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 2fr;
-        gap: 1rem;
-        align-items: center;
-        padding: 0.5rem 0;
-      }
-      
-      .tabela-cabecalho {
-        font-weight: bold;
-        border-bottom: 2px solid #333;
-      }
-      
-      .produto {
-        border-bottom: 1px solid #333;
-      }
-      
-      .produto-imagem {
-        background-color: white;
-        color: black;
-        width: 100%;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-      }
-      
-      .status-btn {
-        padding: 5px 10px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: bold;
-        border: none;
-        cursor: pointer;
-        transition: 0.2s;
-      }
-      
-      .status-btn.verde {
-        background-color: green;
-        color: white;
-      }
-      
-      .status-btn.vermelho {
-        background-color: red;
-        color: white;
-      }
-      
-      .produto.desativado {
-        opacity: 0.6;
-      }
-      
-      .btn-editar {
-        background-color: #00ff00;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 10px;
-        font-weight: bold;
-        cursor: pointer;
-      }
-      
-      .btn-excluir {
-        background-color: red;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 10px;
-        font-weight: bold;
-        color: white;
-        cursor: pointer;
-        margin-left: 5px;
-      }
-      
-      .paginacao {
-        display: flex;
-        justify-content: center;
-        margin-top: 1rem;
-        gap: 5px;
-      }
-      
-      .paginacao button {
-        padding: 4px 12px;
-        border: none;
-        border-radius: 20px;
-        background-color: white;
-        color: black;
-        cursor: pointer;
-      }
-      
-      .produto-search {
-        display: flex;
-        padding: 10px;
-        align-items: center;
-        gap: 100px;;
-      }
-    
-      .tabela-produtos {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 1rem;
-        background-color: #111;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-    
-    .tabela-produtos th,
-    .tabela-produtos td {
-        padding: 12px 10px;
-        text-align: center;
-        border-bottom: 1px solid #333;
-        color: white;
-    }
-    
-    .tabela-produtos th {
-        background-color: #111;
-        font-weight: bold;
-        color: white;
-    }
-    
-    .tabela-produtos tr:nth-child(even) {
-        background-color: #181818;
-    }
-    
-    .tabela-produtos tr:hover {
-        background-color: #222;
-    }
+/* Responsividade */
+@media screen and (max-width: 1024px) {
+  .tabela-produtos {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .produto-search {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .input-pesquisar {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .btn-editar, .btn-excluir {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+  
+  .tabela-produtos td, .tabela-produtos th {
+    padding: 12px 8px;
+  }
+  
+  .tabela-produtos th:first-child, .tabela-produtos td:first-child {
+    padding-left: 12px;
+  }
+  
+  .tabela-produtos th:last-child, .tabela-produtos td:last-child {
+    padding-right: 12px;
+  }
+}

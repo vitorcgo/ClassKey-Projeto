@@ -7,67 +7,65 @@
   <link rel="stylesheet" href="/src/css/global.css" />
   <link rel="stylesheet" href="/src/css/modelo.css" />
   <link rel="stylesheet" href="/src/css/cadastroadmin.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.37.0/tabler-icons.min.css" />
   <link rel="icon" href="/src/images/logo-principal.png" />
   <title>ADM - Cadastro de Administradores</title>
 </head>
 
 <body>
-
   <div class="principalcontainer">
-    <!-- MENU LATERAL -->
+    <!-- MENU LATERAL REDESENHADO -->
     <aside class="aside">
       <div class="cont-aside">
-        <h1>Admin</h1>
+        <h1>Admin Dashboard</h1>
 
         <div class="flex-menu-aside">
-          <div class="icon-circle"></div>
+          <i class="ti ti-layout-dashboard"></i>
           <p><a href="/src/painel.html">Início</a></p>
         </div>
 
         <div class="accordion">
           <div class="flex-menu-aside accordion-header">
-            <div class="icon-circle"></div>
+            <i class="ti ti-shopping-cart"></i>
             <p>Produtos</p>
           </div>
           <div class="accordion-body">
             <div class="flexnormal">
               <div class="icon-circle"></div>
-              <p><a href="/src/cadastroprodutos.html" style="font-size: medium;">Cadastrar Produto</a></p>
+              <p><a href="/src/cadastroprodutos.html">Cadastrar Produto</a></p>
             </div>
             <div class="flexnormal">
               <div class="icon-circle"></div>
               <p><a href="/src/listadeprodutos.html">Lista de Produtos</a></p>
             </div>
-
           </div>
-
-          <!-- Categoria -->
-
-          <div class="accordion">
-            <div class="flex-menu-aside accordion-header">
-              <div class="icon-circle"></div>
-              <p>Categoria</p>
-            </div>
-            <div class="accordion-body">
-              <div class="flexnormal">
-                <div class="icon-circle"></div>
-                <p><a href="/src/cadastrocategoria.html" style="font-size: medium;">Cadastrar Categoria</a></p>
-              </div>
-              <div class="flexnormal">
-                <div class="icon-circle"></div>
-                <p><a href="/src/listadecategoria.html" style="font-size: medium;">Lista de Categorias</a></p>
-              </div>
         </div>
 
-
-        <!-- Administradores -->
-
+        <!-- Categoria -->
         <div class="accordion">
           <div class="flex-menu-aside accordion-header">
-            <div class="icon-circle"></div>
-            <p>Administradores</p>
+            <i class="ti ti-tags"></i>
+            <p>Categorias</p>
           </div>
           <div class="accordion-body">
+            <div class="flexnormal">
+              <div class="icon-circle"></div>
+              <p><a href="/src/cadastrocategoria.html">Cadastrar Categoria</a></p>
+            </div>
+            <div class="flexnormal">
+              <div class="icon-circle"></div>
+              <p><a href="/src/listadecategoria.html">Lista de Categorias</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Administradores -->
+        <div class="accordion">
+          <div class="flex-menu-aside accordion-header active">
+            <i class="ti ti-users"></i>
+            <p>Administradores</p>
+          </div>
+          <div class="accordion-body open">
             <div class="flexnormal">
               <div class="icon-circle"></div>
               <p><a href="/src/cadastrodeadm.html">Cadastrar</a></p>
@@ -77,74 +75,90 @@
               <p><a href="/src/listadeadm.html">Listagem</a></p>
             </div>
           </div>
-
+        </div>
       </div>
 
-      <hr style="border-color: #fff4; width: 100%; margin: 20px 0;" />
+      <div class="divider"></div>
 
       <div class="cont-aside">
-        <h1>Gerenciar</h1>
+        <h1>Gerenciamento</h1>
 
-          <div class="flex-menu-aside">
-            <div class="icon-circle"></div>
-            <p>Analitycs</p>
-          </div>
+        <div class="flex-menu-aside">
+          <i class="ti ti-chart-pie"></i>
+          <p>Analytics</p>
+        </div>
 
-          <div class="flex-menu-aside">
-            <div class="icon-circle"></div>
-            <p>Usuários</p>
-          </div>
+        <div class="flex-menu-aside">
+          <i class="ti ti-user"></i>
+          <p>Usuários</p>
+        </div>
 
-          <div class="flex-menu-aside">
-            <div class="icon-circle"></div>
-            <p>Vendas</p>
-          </div>
+        <div class="flex-menu-aside">
+          <i class="ti ti-receipt"></i>
+          <p>Vendas</p>
+        </div>
 
+        <div class="flex-menu-aside">
+          <i class="ti ti-settings"></i>
+          <p>Configurações</p>
         </div>
       </div>
     </aside>
 
-    <!-- CONTEÚDO CENTRAL -->
+    <!-- CONTEÚDO CENTRAL REDESENHADO -->
     <section class="aside-direito">
 
-      <!-- TOPO -->
+      <!-- TOPO REDESENHADO-->
       <header>
         <div class="flex-ok">
-          <img src="/src/images/lgo-menu.svg" alt="Logo" />
+          <i class="ti ti-menu-2" style="font-size: 24px; cursor: pointer;"></i>
           <h3>
-            Bem vindo!<br />
-            <strong>Administrador</strong>
+            Bem-vindo, <strong>Administrador</strong>
           </h3>
         </div>
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <img src="/src/images/logout-rounded.png" alt="Logout" />
-          <p>Sair</p>
+        <div class="flex" style="align-items: center; gap: 20px;">
+          <div class="search-container">
+            <i class="ti ti-search"></i>
+            <input type="text" placeholder="Pesquisar..." class="search-input">
+          </div>
+          <i class="ti ti-bell" style="font-size: 20px; cursor: pointer;"></i>
+          <a href="/src/index.html" class="logout-btn">
+            <i class="ti ti-logout"></i>
+            <span>Sair</span>
+          </a>
         </div>
       </header>
 
-      <!-- CONTEÚDO PRINCIPAL -->
-      <main class="conteudo-adm">
-        <h1>Cadastro de Usuario Admin</h1>
-        <form action="/src/php/cadastrar_admin.php" method="post">
-          <label for="cadastroadmin"></label>
-          <input type="email" name="cadastroadmin" id="cadastroadmin" placeholder="E-mail do Administrador">
-          <br>
-          <label for="passwordadmin"></label>
-          <input type="password" name="passwordadmin" id="passwordadmin" placeholder="Senha do Administrador">
-          <br>
-          <label for="submit-categoria"></label>
-          <input type="submit" value="Cadastrar" class="submit-adm">
-      </form>
-      
+      <!-- CONTEÚDO PRINCIPAL REDESENHADO -->
+      <main class="conteudo">
+        <div class="produto-search">
+          <h1 class="title-produtos">Cadastro de Usuario Admin</h1>
+        </div>
+
+        <div  style="background-color: var(--card-bg); padding: 24px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md); border: 1px solid var(--border-color);">
+          <form action="/src/php/cadastrar_admin.php" method="post" class="conteudo-adm">
+            <div class="search-container" style="width: 100%; margin-bottom: 16px;">
+              <i class="ti ti-mail"></i>
+              <input type="email" name="cadastroadmin" id="cadastroadmin" class="search-input" style="width: 100%" placeholder="E-mail do Administrador">
+            </div>
+            
+            <div class="search-container" style="width: 100%; margin-bottom: 20px;">
+              <i class="ti ti-lock"></i>
+              <input type="password" name="passwordadmin" id="passwordadmin" class="search-input" style="width: 100%" placeholder="Senha do Administrador">
+            </div>
+            
+            <button type="submit" style="padding: 10px 24px; display: flex; gap: 8px; border-radius: 50px; align-items: left;">
+              <i class="ti ti-plus"></i>
+              <span>Cadastrar</span>
+            </button>
+          </form>
+        </div>
       </main>
-
     </section>
-
   </div>
 
   <script src="/src/javascript/accordion.js"></script>
   <script src="/src/javascript/cadastraradmin.js"></script>
-
 </body>
 
 </html>
