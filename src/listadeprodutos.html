@@ -21,12 +21,12 @@
       <aside class="aside">
         <div class="cont-aside">
           <h1>Admin</h1>
-  
+
           <div class="flex-menu-aside">
             <div class="icon-circle"></div>
             <p><a href="/src/painel.html">Início</a></p>
           </div>
-  
+
           <div class="accordion">
             <div class="flex-menu-aside accordion-header">
               <div class="icon-circle"></div>
@@ -41,11 +41,11 @@
                 <div class="icon-circle"></div>
                 <p><a href="/src/listadeprodutos.html">Lista de Produtos</a></p>
               </div>
-  
+
             </div>
-  
+
             <!-- Categoria -->
-  
+
             <div class="accordion">
               <div class="flex-menu-aside accordion-header">
                 <div class="icon-circle"></div>
@@ -60,127 +60,120 @@
                   <div class="icon-circle"></div>
                   <p><a href="/src/listadecategoria.html" style="font-size: medium;">Lista de Categorias</a></p>
                 </div>
-          </div>
-  
-  
-          <!-- Administradores -->
-  
-          <div class="accordion">
-            <div class="flex-menu-aside accordion-header">
-              <div class="icon-circle"></div>
-              <p>Administradores</p>
-            </div>
-            <div class="accordion-body">
-              <div class="flexnormal">
-                <div class="icon-circle"></div>
-                <p><a href="/src/cadastrodeadm.html">Cadastrar</a></p>
               </div>
-              <div class="flexnormal">
-                <div class="icon-circle"></div>
-                <p><a href="/src/listadeadm.html">Listagem</a></p>
+
+
+              <!-- Administradores -->
+
+              <div class="accordion">
+                <div class="flex-menu-aside accordion-header">
+                  <div class="icon-circle"></div>
+                  <p>Administradores</p>
+                </div>
+                <div class="accordion-body">
+                  <div class="flexnormal">
+                    <div class="icon-circle"></div>
+                    <p><a href="/src/cadastrodeadm.html">Cadastrar</a></p>
+                  </div>
+                  <div class="flexnormal">
+                    <div class="icon-circle"></div>
+                    <p><a href="/src/listadeadm.html">Listagem</a></p>
+                  </div>
+                </div>
+
+              </div>
+
+              <hr style="border-color: #fff4; width: 100%; margin: 20px 0;" />
+
+              <div class="cont-aside">
+                <h1>Gerenciar</h1>
+
+                <div class="flex-menu-aside">
+                  <div class="icon-circle"></div>
+                  <p>Analitycs</p>
+                </div>
+
+                <div class="flex-menu-aside">
+                  <div class="icon-circle"></div>
+                  <p>Usuários</p>
+                </div>
+
+                <div class="flex-menu-aside">
+                  <div class="icon-circle"></div>
+                  <p>Vendas</p>
+                </div>
+
               </div>
             </div>
-  
-        </div>
-  
-        <hr style="border-color: #fff4; width: 100%; margin: 20px 0;" />
-  
-        <div class="cont-aside">
-          <h1>Gerenciar</h1>
-  
-            <div class="flex-menu-aside">
-              <div class="icon-circle"></div>
-              <p>Analitycs</p>
-            </div>
-  
-            <div class="flex-menu-aside">
-              <div class="icon-circle"></div>
-              <p>Usuários</p>
-            </div>
-  
-            <div class="flex-menu-aside">
-              <div class="icon-circle"></div>
-              <p>Vendas</p>
-            </div>
-  
-          </div>
-        </div>
       </aside>
 
-    <!-- CONTEÚDO CENTRAL -->
-    <section class="aside-direito">
+      <!-- CONTEÚDO CENTRAL -->
+      <section class="aside-direito">
 
-      <!-- TOPO -->
-      <header>
-        <div class="flex-ok">
-          <img src="/src/images/lgo-menu.svg" alt="Logo" />
-          <h3>
-            Bem vindo!<br />
-            <strong>Administrador</strong>
-          </h3>
-        </div>
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <a href="/src/index.html">
-            <img src="/src/images/logout-rounded.png" alt="Logout" />
-            <p style="color: black">Sair</p>
-          </a>
-        </div>
-      </header>
+        <!-- TOPO -->
+        <header>
+          <div class="flex-ok">
+            <img src="/src/images/lgo-menu.svg" alt="Logo" />
+            <h3>
+              Bem vindo!<br />
+              <strong>Administrador</strong>
+            </h3>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <a href="/src/index.html">
+              <img src="/src/images/logout-rounded.png" alt="Logout" />
+              <p style="color: black">Sair</p>
+            </a>
+          </div>
+        </header>
 
-      <!-- CONTEÚDO PRINCIPAL -->
-      <main class="conteudo">
-        <div class="produto-search">
-          <h1 class="title-produtos">Lista de Produtos</h1>
-          <input type="search" placeholder="Pesquisar produto ou ID" class="input-pesquisar" />
-        </div>
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="conteudo">
+          <div class="produto-search">
+            <h1 class="title-produtos">Lista de Produtos</h1>
+            <input type="search" placeholder="Pesquisar produto ou ID" class="input-pesquisar" id="barra-pesquisa" />
+          </div>
 
-        <table class="tabela-produtos">
-          <thead>
-            <tr>
-              <th>Imagem</th>
-              <th>Nome</th>
-              <th>Status</th>
-              <th>Categoria</th>
-              <th>Valor</th>
-              <th>Estoque</th>
-              <th>ID</th>
-              <th>Funções</th>
-            </tr>
-          </thead>
-          <tbody id="tabela-produtos">
-            <tr>
-              <td>
-                <div class="produto-imagem"></div>
-              </td>
-              <td></td>
-              <td><button class="status-btn verde"></button></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button class="btn-editar"><a href="/src/editarprodutos.html">Editar</a></button>
-                <button class="btn-excluir">Excluir</button>
-              </td>
-            </tr>
-            
-          </tbody>
-        </table>
+          <table class="tabela-produtos">
+            <thead>
+              <tr>
+                <th>Imagem</th>
+                <th>Nome</th>
+                <th>Status</th>
+                <th>Categoria</th>
+                <th>Valor</th>
+                <th>Estoque</th>
+                <th>ID</th>
+                <th>Funções</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-produtos">
+              <tr>
+                <td>
+                  <div class="produto-imagem"></div>
+                </td>
+                <td></td>
+                <td><button class="status-btn verde"></button></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <button class="btn-editar"><a href="/src/editarprodutos.html">Editar</a></button>
+                  <button class="btn-excluir">Excluir</button>
+                </td>
+              </tr>
 
-        <div class="paginacao">
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-        </div>
-      </main>
-    </section>
+            </tbody>
+          </table>
+        </main>
+      </section>
 
 
 
-  </div>
-
-  <script src="/src/javascript/accordion.js"></script>
-  <script src="/src/javascript/listar_produtos.js"></script>
+    </div>
+    <script src="/src/javascript/accordion.js"></script>
+    <script src="/src/javascript/listar_produtos.js"></script>
 </body>
 
 </html>

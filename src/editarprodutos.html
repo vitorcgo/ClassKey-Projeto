@@ -57,51 +57,51 @@
                 <div class="icon-circle"></div>
                 <p><a href="/src/listadecategoria.html" style="font-size: medium;">Lista de Categorias</a></p>
               </div>
-        </div>
-
-
-        <!-- Administradores -->
-
-        <div class="accordion">
-          <div class="flex-menu-aside accordion-header">
-            <div class="icon-circle"></div>
-            <p>Administradores</p>
-          </div>
-          <div class="accordion-body">
-            <div class="flexnormal">
-              <div class="icon-circle"></div>
-              <p><a href="/src/cadastrodeadm.html">Cadastrar</a></p>
             </div>
-            <div class="flexnormal">
-              <div class="icon-circle"></div>
-              <p><a href="/src/listadeadm.html">Listagem</a></p>
+
+
+            <!-- Administradores -->
+
+            <div class="accordion">
+              <div class="flex-menu-aside accordion-header">
+                <div class="icon-circle"></div>
+                <p>Administradores</p>
+              </div>
+              <div class="accordion-body">
+                <div class="flexnormal">
+                  <div class="icon-circle"></div>
+                  <p><a href="/src/cadastrodeadm.html">Cadastrar</a></p>
+                </div>
+                <div class="flexnormal">
+                  <div class="icon-circle"></div>
+                  <p><a href="/src/listadeadm.html">Listagem</a></p>
+                </div>
+              </div>
+
+            </div>
+
+            <hr style="border-color: #fff4; width: 100%; margin: 20px 0;" />
+
+            <div class="cont-aside">
+              <h1>Gerenciar</h1>
+
+              <div class="flex-menu-aside">
+                <div class="icon-circle"></div>
+                <p>Analitycs</p>
+              </div>
+
+              <div class="flex-menu-aside">
+                <div class="icon-circle"></div>
+                <p>Usuários</p>
+              </div>
+
+              <div class="flex-menu-aside">
+                <div class="icon-circle"></div>
+                <p>Vendas</p>
+              </div>
+
             </div>
           </div>
-
-      </div>
-
-      <hr style="border-color: #fff4; width: 100%; margin: 20px 0;" />
-
-      <div class="cont-aside">
-        <h1>Gerenciar</h1>
-
-          <div class="flex-menu-aside">
-            <div class="icon-circle"></div>
-            <p>Analitycs</p>
-          </div>
-
-          <div class="flex-menu-aside">
-            <div class="icon-circle"></div>
-            <p>Usuários</p>
-          </div>
-
-          <div class="flex-menu-aside">
-            <div class="icon-circle"></div>
-            <p>Vendas</p>
-          </div>
-
-        </div>
-      </div>
     </aside>
     <!-- CONTEÚDO CENTRAL -->
     <section class="aside-direito">
@@ -122,50 +122,58 @@
       </header>
 
       <!-- CONTEÚDO PRINCIPAL -->
+      <!-- CONTEÚDO PRINCIPAL -->
       <main class="conteudo-cadastro-produtos">
         <article>
           <div class="title-form-produtos">
-            <img src="/src/images/grande-task.png" >
+            <img src="/src/images/grande-task.png">
             <h1>Editor de Produtos</h1>
             <div class="id-editar">
-                <p>(0)</p>
+              <p id="id-produto">(0)</p>
             </div>
           </div>
-          <!-- Formulario de Cadastro -->
+
+          <!-- Formulário de Cadastro -->
           <form id="form-produto" action="" method="POST" enctype="multipart/form-data">
+            <!-- 👇 CAMPO OCULTO ADICIONADO -->
+            <input type="hidden" id="produtoId" name="produtoId">
+
             <article class="form-left">
               <label for="nome"></label>
               <input type="text" name="nome" id="nome" placeholder="Nome do Produto" required>
-              
+
               <label for="preco"></label>
               <input type="number" step="0.01" name="preco" id="preco" placeholder="Valor do Produto" required>
-          
+
               <label for="categoria_id"></label>
               <select name="categoria_id" id="categoria-options" required>
-                  <option value="">Escolha a Categoria</option>
+                <option value="">Escolha a Categoria</option>
               </select>
-              
-          
+
               <label for="quantidade"></label>
               <input type="number" name="quantidade" id="quantidade" placeholder="Quantidade do Produto" required>
-          
+
               <label for="descricao"></label>
-              <input type="text" name="descricao" id="descricao" placeholder="Descrição do Produto" class="input-descricao" required>
-          
+              <input type="text" name="descricao" id="descricao" placeholder="Descrição do Produto"
+                class="input-descricao" required>
+
               <div class="title-form-produtos">
                 <input type="submit" value="Salvar" class="input-submit-cadastro">
               </div>
             </article>
-          
+
             <article class="form-right">
               <div id="preview">
-                <span>Nenhuma imagem selecionada</span>
+                <img id="imagem-preview" src="" alt="Imagem do Produto" style="max-width: 100%; display: none;">
+                <span id="sem-imagem">Nenhuma imagem selecionada</span>
               </div>
-              
+
+
               <label for="imagem"></label>
-              <input type="file" id="imagemInput" name="imagem" accept="image/*" class="filereader" required>
+              <input type="file" id="imagemInput" name="imagem" accept="image/*" class="filereader" >
             </article>
           </form>
+        </article>
       </main>
 
     </section>
@@ -175,5 +183,7 @@
   <script src="/src/javascript/filereader.js"></script>i
   <script src="/src/javascript/accordion.js"></script>
   <script src="/src/javascript/categorias.js"></script>
+  <script src="/src/javascript/editar_produto.js"></script>
 </body>
+
 </html>
