@@ -1,30 +1,40 @@
 <?php
 session_start();
+$_SESSION['admin_logado'] = true;
+header("Access-Control-Allow-Origin: ");
+header("Location: painel.html");
+header("Content-Type: application/json");
+
 include 'conexao.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email-admin'] ?? '';
-    $senha = $_POST['senha-admin'] ?? '';
+$usuario = $_POST['email-admin'] ?? '';
+$senha   = $_POST['senha-admin'] ?? '';
 
-    // Verifica se o admin existe no banco
-    $stmt = $pdo->prepare("SELECT * FROM admin WHERE usuario = ?");
-    $stmt->execute([$email]);
-    $admin = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($admin && password_verify($senha, $admin['senha'])) {
-        // Atualiza a data de último acesso
-        $stmtUpdate = $pdo->prepare("UPDATE admin SET data_ultimo_acesso = ? WHERE admin_id = ?");
-        $stmtUpdate->execute([date('Y-m-d H:i:s'), $admin['admin_id']]);
-
-        // Cria a sessão do administrador (opcional, para controle de login)
-        $_SESSION['admin_id'] = $admin['admin_id'];
-        $_SESSION['usuario'] = $admin['usuario'];
-
-        // Redireciona para o painel ou página do administrador
-        header('Location: /src/painel.html');
-        exit;
-    } else {
-        echo 'Desculpe cara, você errou a senha do administrador, tente novamente!.';
-    }
+if (empty($usuario) || empty($senha)) {
+    echo json_encode(["sucesso" => false, "mensagem" => "Preencha todos os campos."]);
+    exit;
 }
+
+// Buscar o usuário no banco
+$stmt = $conn->prepare("SELECT FROM usuarios WHERE usuario = ?");
+$stmt->bind_param("s", $usuario);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 1) {
+    $dados = $result->fetch_assoc();
+
+    // Verifica a senha com hash
+    if (password_verify($senha, $dados['senha-admin'])) {
+        $_SESSION['usuario_logado'] = $usuario;
+        echo json_encode(["sucesso" => true]);
+    } else {
+        echo json_encode(["sucesso" => false, "mensagem" => "Senha incorreta."]);
+    }
+} else {
+    echo json_encode(["sucesso" => false, "mensagem" => "Usuário não encontrado."]);
+}
+
+$stmt->close();
+$conn->close();
 ?>
