@@ -1,54 +1,62 @@
 <?php
-include 'conexao.php';
+require 'conexao.php';
+header('Content-Type: application/json');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Recebe os dados do formulário
-    $produto_id   = $_POST['produto_id'];
-    $nome         = $_POST['nome'];
-    $preco        = $_POST['preco'];
-    $categoria_id = $_POST['categoria_id'];
-    $quantidade   = $_POST['quantidade'];
-    $descricao    = $_POST['descricao'];
-    $status       = 'ativo'; // status padrão
-
-    // Atualiza dados do produto
-    $stmt = $pdo->prepare("UPDATE produto SET nome = ?, preco = ?, status = ?, descricao = ?, quantidade = ? WHERE id = ?");
-    $stmt->execute([$nome, $preco, $status, $descricao, $quantidade, $produto_id]);
-
-    // Atualiza a categoria (1 por produto)
-    $stmt = $pdo->prepare("UPDATE produto_categoria SET categoria_id = ? WHERE produto_id = ?");
-    $stmt->execute([$categoria_id, $produto_id]);
-
-    // Se uma nova imagem foi enviada
-    if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
-        $img_tmp  = $_FILES['imagem']['tmp_name'];
-        $img_nome = uniqid() . '-' . $_FILES['imagem']['name'];
-        $destino  = '../../src/images/' . $img_nome;
-
-        if (move_uploaded_file($img_tmp, $destino)) {
-            $url = '/src/images/' . $img_nome;
-
-            // Verifica se o produto já tem uma imagem
-            $stmt = $pdo->prepare("SELECT id FROM produto_media WHERE produto_id = ?");
-            $stmt->execute([$produto_id]);
-
-            if ($stmt->rowCount() > 0) {
-                // Atualiza a imagem existente
-                $stmt = $pdo->prepare("UPDATE produto_media SET url = ? WHERE produto_id = ?");
-                $stmt->execute([$url, $produto_id]);
-            } else {
-                // Insere uma nova imagem
-                $stmt = $pdo->prepare("INSERT INTO produto_media (produto_id, url) VALUES (?, ?)");
-                $stmt->execute([$produto_id, $url]);
-            }
-        }
-    }
-
-    // Redireciona após sucesso
-    echo "<script>alert('Produto atualizado com sucesso!'); location.href='/src/listadeprodutos.html';</script>";
-} else {
-    // Se acessado sem POST
-    echo "<script>alert('Requisição inválida.'); location.href='/src/listadeprodutos.html';</script>";
+// Validação dos dados vindos do formulário
+if (
+    empty($_POST['produtoId']) ||
+    empty($_POST['nome']) ||
+    empty($_POST['preco']) ||
+    empty($_POST['descricao']) ||
+    empty($_POST['quantidade']) ||
+    empty($_POST['categoria_id'])
+) {
+    http_response_code(400);
+    echo json_encode(['erro' => 'Dados incompletos']);
     exit;
 }
-?>
+
+$id = intval($_POST['produtoId']);
+$nome = trim($_POST['nome']);
+$preco = floatval($_POST['preco']);
+$descricao = trim($_POST['descricao']);
+$quantidade = intval($_POST['quantidade']);
+$categoria_id = intval($_POST['categoria_id']);
+
+// Atualiza os dados na tabela 'produto'
+$stmt = $pdo->prepare("UPDATE produto SET nome = ?, preco = ?, descricao = ?, quantidade = ? WHERE produto_id = ?");
+$produtoOK = $stmt->execute([$nome, $preco, $descricao, $quantidade, $id]);
+
+// Atualiza categoria na tabela 'produto_categoria'
+$stmt2 = $pdo->prepare("UPDATE produto_categoria SET categoria_id = ? WHERE produto_id = ?");
+$categoriaOK = $stmt2->execute([$categoria_id, $id]);
+
+// Se imagem foi enviada, processa o upload
+if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+    $extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+    $nomeArquivo = uniqid('produto_', true) . '.' . $extensao;
+    $destino = '../uploads/' . $nomeArquivo;
+
+    if (move_uploaded_file($_FILES['imagem']['tmp_name'], $destino)) {
+        $urlImagem = '/src/uploads/' . $nomeArquivo;
+
+        // Atualiza ou insere na tabela produto_media
+        $check = $pdo->prepare("SELECT * FROM produto_media WHERE produto_id = ?");
+        $check->execute([$id]);
+
+        if ($check->fetch()) {
+            $update = $pdo->prepare("UPDATE produto_media SET url = ? WHERE produto_id = ?");
+            $update->execute([$urlImagem, $id]);
+        } else {
+            $insert = $pdo->prepare("INSERT INTO produto_media (produto_id, url) VALUES (?, ?)");
+            $insert->execute([$id, $urlImagem]);
+        }
+    }
+}
+
+if ($produtoOK && $categoriaOK) {
+    echo json_encode(['mensagem' => 'Produto atualizado com sucesso']);
+} else {
+    http_response_code(500);
+    echo json_encode(['erro' => 'Erro ao atualizar produto']);
+}
