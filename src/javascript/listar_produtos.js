@@ -4,8 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('src/php/listar_produtos.php')
         .then(res => res.json())
         .then(produtos => {
-            // Registrar no console para debugging
-            console.log('Produtos carregados:', produtos);
+            console.log(produtos);
             todosOsProdutos = produtos;
             renderizarTabela(produtos);
 
@@ -35,11 +34,7 @@ function renderizarTabela(produtos) {
     corpoTabela.innerHTML = '';
 
     if (!Array.isArray(produtos)) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Erro de dados',
-            text: 'Dados inválidos retornados: ' + JSON.stringify(produtos)
-        });
+        alert('Dados inválidos retornados: ' + JSON.stringify(produtos));
         return;
     }
 
@@ -92,19 +87,10 @@ function excluirProduto(event) {
     .then(res => res.text())
     .then(resposta => {
         if (resposta === 'sucesso') {
-            Swal.fire({
-                icon: 'success',
-                title: 'Sucesso!',
-                text: 'Produto excluído com sucesso!'
-            }).then(() => {
-                location.reload();
-            });
+            alert('Produto excluído com sucesso!');
+            location.reload();
         } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Erro',
-                text: 'Erro ao excluir: ' + resposta
-            });
+            alert('Erro ao excluir: ' + resposta);
         }
     });
 }
@@ -124,11 +110,7 @@ function toggleStatus(botao, produtoId) {
             botao.classList.toggle('verde');
             botao.classList.toggle('vermelho');
         } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Erro',
-                text: 'Erro ao alterar status: ' + resposta
-            });
+            alert('Erro ao alterar status: ' + resposta);
         }
     });
 }

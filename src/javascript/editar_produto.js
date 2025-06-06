@@ -3,11 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const id = params.get("id");
 
   if (!id) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Erro',
-      text: 'ID do produto não informado.'
-    });
+    alert("ID do produto não informado.");
     return;
   }
 
@@ -15,11 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.json())
     .then(produto => {
       if (produto.erro) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Erro',
-          text: produto.erro
-        });
+        alert(produto.erro);
         return;
       }
 
@@ -53,27 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(res => res.json())
       .then(response => {
         if (response.mensagem) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Sucesso!',
-            text: response.mensagem
-          }).then(() => {
-            window.location.href = "listadeprodutos.html";
-          });
+          alert(response.mensagem);
+          window.location.href = "listadeprodutos.html";
         } else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Erro',
-            text: response.erro || "Erro desconhecido ao salvar."
-          });
+          alert(response.erro || "Erro desconhecido ao salvar.");
         }
       })
       .catch(() => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Erro',
-          text: "Erro ao salvar alterações."
-        });
+        alert("Erro ao salvar alterações.");
       });
   });
 });

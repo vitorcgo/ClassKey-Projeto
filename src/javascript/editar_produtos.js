@@ -8,11 +8,7 @@ window.onload = function() {
             .then(response => response.json())
             .then(data => {
                 if (data.erro) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Erro',
-                        text: data.erro
-                    });
+                    alert(data.erro);
                     return;
                 }
 

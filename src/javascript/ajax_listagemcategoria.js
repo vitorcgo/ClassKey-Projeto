@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('src/php/listar_categorias.php')
         .then(res => res.json())
         .then(categorias => {
-            // Removed console.log for production
+            console.log(categorias);
             todasAsCategorias = categorias;
             renderizarTabela(categorias);
             
@@ -24,13 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         })
-        .catch(err => {
-            Swal.fire({
-                icon: 'error',
-                title: 'Erro',
-                text: 'Erro ao carregar categorias: ' + err
-            });
-        });
+        .catch(err => console.error('Erro ao carregar categorias:', err));
 });
 
 // 🔁 Função para renderizar as categorias na tabela
@@ -39,11 +33,7 @@ function renderizarTabela(categorias) {
     corpoTabela.innerHTML = '';
 
     if (!Array.isArray(categorias)) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Erro',
-            text: 'Dados inválidos retornados: ' + JSON.stringify(categorias)
-        });
+        alert('Dados inválidos retornados: ' + JSON.stringify(categorias));
         return;
     }
 
@@ -81,15 +71,7 @@ function excluirCategoria(event) {
     const button = event.target.closest('.btn-excluir');
     const id = button.getAttribute('data-id');
 
-    Swal.fire({
-        title: 'Tem certeza?',
-        text: 'Deseja realmente excluir esta categoria?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Sim, excluir!',
-        cancelButtonText: 'Cancelar'
-    }).then((result) => {
-        if (result.isConfirmed) {
+    if (confirm('Tem certeza que deseja excluir esta categoria?')) {
         fetch('src/php/excluir_categoria.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -98,22 +80,12 @@ function excluirCategoria(event) {
         .then(res => res.text())
         .then(resposta => {
             if (resposta === 'sucesso') {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Sucesso!',
-                    text: 'Categoria excluída com sucesso!'
-                }).then(() => {
-                    location.reload();
-                });
+                alert('Categoria excluída com sucesso!');
+                location.reload();
             } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Erro',
-                    text: 'Erro ao excluir: ' + resposta
-                });
+                alert('Erro ao excluir: ' + resposta);
             }
         });
-        }
     }
 }
 
@@ -132,11 +104,7 @@ function toggleStatus(botao, categoriaId) {
             botao.classList.toggle('verde');
             botao.classList.toggle('vermelho');
         } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Erro',
-                text: 'Erro ao alterar status: ' + resposta
-            });
+            alert('Erro ao alterar status: ' + resposta);
         }
     });
 }
