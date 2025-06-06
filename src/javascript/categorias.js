@@ -27,9 +27,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             } else {
                 console.error('Dados de categoria inválidos:', data);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'Dados de categoria inválidos.'
+                });
             }
         })
         .catch(error => {
             console.error('Erro ao carregar categorias:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Erro ao carregar categorias.'
+            });
         });
 });

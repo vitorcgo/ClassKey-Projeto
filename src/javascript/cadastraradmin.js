@@ -6,7 +6,11 @@ document.querySelector('form').addEventListener('submit', function (e) {
 
     // Verificar se os campos estão preenchidos
     if (!email || !senha) {
-        alert('Preencha todos os campos.');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Atenção',
+            text: 'Preencha todos os campos.'
+        });
         return;
     }
 
@@ -22,13 +26,26 @@ document.querySelector('form').addEventListener('submit', function (e) {
     .then(resposta => {
         // Verificar se a resposta do PHP foi 'sucesso'
         if (resposta === 'sucesso') {
-            alert('Administrador cadastrado com sucesso!');
-            document.querySelector('form').reset(); // Limpar o formulário
+            Swal.fire({
+                icon: 'success',
+                title: 'Sucesso',
+                text: 'Administrador cadastrado com sucesso!'
+            }).then(() => {
+                document.querySelector('form').reset(); // Limpar o formulário
+            });
         } else {
-            alert('Erro: ' + resposta); // Exibir o erro retornado pelo PHP
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Erro: ' + resposta
+            }); // Exibir o erro retornado pelo PHP
         }
     })
     .catch(err => {
-        alert('Erro ao enviar os dados: ' + err); // Se ocorrer um erro na requisição
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro',
+            text: 'Erro ao enviar os dados: ' + err
+        }); // Se ocorrer um erro na requisição
     });
 });

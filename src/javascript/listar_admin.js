@@ -37,13 +37,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.addEventListener('click', excluirAdmin);
             });
         })
-        .catch(err => console.error('Erro ao carregar administradores:', err));
+        .catch(err => {
+            console.error('Erro ao carregar administradores:', err);
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Erro ao carregar administradores.'
+            });
+        });
 });
 
-function excluirAdmin(event) {
+async function excluirAdmin(event) {
     const adminId = event.target.getAttribute('data-id');
 
-    if (!confirm('Tem certeza que deseja excluir este administrador?')) return;
+    const confirmResult = await Swal.fire({
+        title: 'Confirmar exclusão',
+        text: 'Tem certeza que deseja excluir este administrador?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, excluir!',
+        cancelButtonText: 'Cancelar'
+    });
+    
+    if (!confirmResult.isConfirmed) return;
 
     fetch('src/php/excluir_admin.php', {
         method: 'POST',
@@ -53,15 +71,28 @@ function excluirAdmin(event) {
     .then(res => res.json())
     .then(resposta => {
         if (resposta.sucesso) {
-            alert('Administrador excluído com sucesso!');
-            location.reload(); // Recarregar a página para refletir as mudanças
+            Swal.fire({
+                icon: 'success',
+                title: 'Sucesso!',
+                text: 'Administrador excluído com sucesso!'
+            }).then(() => {
+                location.reload(); // Recarregar a página para refletir as mudanças
+            });
         } else {
-            alert('Erro ao excluir: ' + (resposta.erro || 'Erro desconhecido'));
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Erro ao excluir: ' + (resposta.erro || 'Erro desconhecido')
+            });
         }
     })
     .catch(err => {
         console.error('Erro na exclusão:', err);
-        alert('Erro ao excluir administrador.');
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro',
+            text: 'Erro ao excluir administrador.'
+        });
     });
 }
 
@@ -80,11 +111,19 @@ function toggleStatus(botao, adminId) {
             botao.classList.toggle('verde');
             botao.classList.toggle('vermelho');
         } else {
-            alert('Erro ao alterar status: ' + resposta);
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Erro ao alterar status: ' + resposta
+            });
         }
     })
     .catch(err => {
         console.error('Erro ao alterar status:', err);
-        alert('Erro ao alterar status do administrador.');
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro',
+            text: 'Erro ao alterar status do administrador.'
+        });
     });
 }

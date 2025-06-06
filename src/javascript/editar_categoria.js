@@ -4,7 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoriaId = urlParams.get('id');
     
     if (!categoriaId) {
-        alert('ID da categoria não especificado');
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro',
+            text: 'ID da categoria não especificado'
+        });
         window.location.href = 'listadecategoria.html';
         return;
     }
@@ -26,13 +30,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Update page title with category name
                 document.title = `Editar Categoria: ${categoria.categoria} | Sistema de Gerenciamento`;
             } else {
-                alert('Categoria não encontrada');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'Categoria não encontrada'
+                });
                 window.location.href = 'listadecategoria.html';
             }
         })
         .catch(err => {
             console.error('Erro ao carregar dados da categoria:', err);
-            alert('Erro ao carregar dados da categoria');
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Erro ao carregar dados da categoria'
+            });
         });
     
     // Handle form submission
@@ -49,15 +61,28 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(res => res.text())
         .then(resposta => {
             if (resposta === 'sucesso') {
-                alert('Categoria atualizada com sucesso!');
-                window.location.href = 'listadecategoria.html';
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sucesso!',
+                    text: 'Categoria atualizada com sucesso!'
+                }).then(() => {
+                    window.location.href = 'listadecategoria.html';
+                });
             } else {
-                alert('Erro ao atualizar categoria: ' + resposta);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'Erro ao atualizar categoria: ' + resposta
+                });
             }
         })
         .catch(err => {
             console.error('Erro ao enviar formulário:', err);
-            alert('Erro ao processar a requisição');
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Erro ao processar a requisição'
+            });
         });
     });
 });
