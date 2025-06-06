@@ -1,0 +1,360 @@
+/* Definição de variáveis para cores */
+:root {
+    --cor-amarelo: #991170;
+    --cor-laranja: #9c0b89;
+    --cor-preto: #0D0D0D;
+    --cor-branco: #FFFFFF;
+    --cor-roxo: #7B68EE;
+    --cor-roxo-claro: #9370DB;
+    --cor-gradiente-1: linear-gradient(45deg, var(--cor-amarelo), var(--cor-laranja));
+    --cor-gradiente-2: linear-gradient(135deg, var(--cor-roxo), var(--cor-roxo-claro));
+}
+
+/* Reset básico e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--cor-branco);
+    color: var(--cor-branco);
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Estilização da tela de carregamento (loading) */
+#telaCarregamento {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cor-branco);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudoCarregamento {
+    text-align: center;
+    width: 300px;
+}
+
+.logoCarregamento {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--cor-amarelo);
+    text-shadow: rgba(255, 1, 255, 0.3);
+    letter-spacing: 3px;
+}
+
+.barraProgresso {
+    width: 100%;
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.preenchimento {
+    width: 0%;
+    height: 100%;
+    background: var(--cor-gradiente-1);
+    border-radius: 10px;
+}
+
+.mensagemCarregamento {
+    color: var(--cor-preto);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Estilização do fundo animado */
+.fundoAnimado {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bolha {
+    position: absolute;
+    bottom: -150px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: flutuacao 15s infinite ease-in-out;
+}
+
+.bolha:nth-child(1) {
+    background-color: var(--cor-amarelo);
+    left: 10%;
+    width: 80px;
+    height: 80px;
+    animation-duration: 18s;
+}
+
+.bolha:nth-child(2) {
+    background-color: var(--cor-laranja);
+    left: 20%;
+    width: 65px;
+    height: 65px;
+    animation-duration: 21s;
+    animation-delay: 2s;
+}
+
+.bolha:nth-child(3) {
+    background-color: var(--cor-roxo);
+    left: 35%;
+    width: 90px;
+    height: 90px;
+    animation-duration: 19s;
+    animation-delay: 4s;
+}
+
+.bolha:nth-child(4) {
+    background-color: var(--cor-amarelo);
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    animation-duration: 22s;
+    animation-delay: 1s;
+}
+
+.bolha:nth-child(5) {
+    background-color: var(--cor-roxo-claro);
+    left: 65%;
+    width: 70px;
+    height: 70px;
+    animation-duration: 20s;
+    animation-delay: 3s;
+}
+
+.bolha:nth-child(6) {
+    background-color: var(--cor-laranja);
+    left: 80%;
+    width: 55px;
+    height: 55px;
+    animation-duration: 16s;
+    animation-delay: 2.5s;
+}
+
+.bolha:nth-child(7) {
+    background-color: var(--cor-roxo);
+    left: 90%;
+    width: 45px;
+    height: 45px;
+    animation-duration: 17s;
+    animation-delay: 1.5s;
+}
+
+.bolha:nth-child(8) {
+    background-color: var(--cor-amarelo);
+    left: 25%;
+    width: 60px;
+    height: 60px;
+    animation-duration: 23s;
+    animation-delay: 0.5s;
+}
+
+.bolha:nth-child(9) {
+    background-color: var(--cor-laranja);
+    left: 45%;
+    width: 75px;
+    height: 75px;
+    animation-duration: 19.5s;
+    animation-delay: 3.5s;
+}
+
+.bolha:nth-child(10) {
+    background-color: var(--cor-roxo-claro);
+    left: 70%;
+    width: 85px;
+    height: 85px;
+    animation-duration: 20.5s;
+    animation-delay: 4.5s;
+}
+
+@keyframes flutuacao {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-800px) rotate(180deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-1500px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Estilização do container principal de login */
+.containerLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    opacity: 0; /* Começa invisível para animação GSAP */
+}
+
+.cartaoLogin {
+    background-color: rgba(1, 1, 1, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(255, 1, 255, 0.3);
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transform: translateY(30px); /* Começa abaixo para animação GSAP */
+}
+
+.cabecalhoLogin {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tituloLogin {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    background: var(--cor-gradiente-1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+}
+
+.subTituloLogin {
+    color: var(--cor-branco);
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+.formularioLogin {
+    margin-bottom: 25px;
+}
+
+.campoFormulario {
+    margin-bottom: 20px;
+}
+
+.campoFormulario label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--cor-branco);
+}
+
+.campoFormulario input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.192);
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    color: var(--cor-branco);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.campoFormulario input:focus {
+    border-color: var(--cor-amarelo);
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 0, 221, 0.3);
+}
+
+.opcoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 0.85rem;
+}
+
+.lembrarMe {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.esqueciSenha {
+    color: var(--cor-roxo-claro);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.esqueciSenha:hover {
+    color: var(--cor-roxo);
+    text-decoration: underline;
+}
+
+.botaoEntrar {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: var(--cor-laranja);
+    color: var(--cor-branco);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 1, 255, 0.3);
+}
+
+.botaoEntrar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(123, 104, 238, 0.5);
+}
+
+.botaoEntrar:active {
+    transform: translateY(0);
+}
+
+.rodapeLogin {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.linkSite {
+    color: var(--cor-laranja);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.linkSite:hover {
+    color: var(--cor-laranja);
+    text-decoration: underline;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 480px) {
+    .cartaoLogin {
+        padding: 25px;
+    }
+    
+    .opcoes {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .lembrarMe {
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,362 @@
+/* PAINEL ADMIN - Dashboard Principal - Redesenhado completamente */
+/* Comentário em Português: Interface redesenhada para um layout profissional e moderno */
+
+/* Conteúdo principal */
+.conteudo {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  overflow-y: auto;
+  width: 100%;
+}
+
+/* Cabeçalho do dashboard */
+.dashboard-header {
+  grid-column: span 12;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.dashboard-header .date-display {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Cards do dashboard - estilo totalmente reformulado */
+.dashboard-cards {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.card-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--primary-color);
+}
+
+.card h2 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin: 0 0 0.75rem 0;
+}
+
+.card p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.card .trend-up {
+  color: #10b981; /* Verde para tendências positivas */
+}
+
+.card .trend-down {
+  color: #ef4444; /* Vermelho para tendências negativas */
+}
+
+/* Gráfico - Visual completamente redesenhado */
+.grafico-container {
+  grid-column: span 12;
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+}
+
+.grafico-container h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grafico-container h3 .period-selector {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.grafico-container h3 .period-option {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
+
+.grafico-container h3 .period-option.active {
+  background: var(--primary-light);
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+#graficoVendas {
+  width: 100%;
+  height: 320px;
+}
+
+/* Atalhos rápidos - Design totalmente novo */
+.atalhos {
+  grid-column: span 12;
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+}
+
+.atalhos h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.atalhos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+/* Botões - Design completamente novo */
+.btn-quick {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+}
+
+.btn-quick::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+}
+
+.btn-quick:hover {
+  background: var(--darker-bg);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.btn-quick svg {
+  width: 20px;
+  height: 20px;
+  color: var(--primary-color);
+}
+
+.btn-quick-primary {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(153, 0, 255, 0.3);
+}
+
+.btn-quick-primary:hover {
+  box-shadow: 0 6px 20px rgba(153, 0, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+.btn-quick-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-icon {
+  border-radius: 0.75rem;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-light);
+  color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-icon:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Layouts responsivos avançados para dispositivos móveis */
+@media screen and (max-width: 1200px) {
+  .conteudo {
+    grid-template-columns: repeat(6, 1fr);
+    padding: 1rem;
+  }
+  
+  .grafico-container {
+    grid-column: span 6;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Comentário em Português: Layout completamente adaptado para dispositivos móveis */
+  .conteudo {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .dashboard-cards {
+    grid-column: span 1;
+  }
+  
+  .card {
+    min-height: 140px;
+  }
+  
+  /* Comentário em Português: Ajustes na organização de elementos para melhor visualização em telas pequenas */
+  .grafico-container {
+    grid-column: span 1;
+    padding: 1rem;
+  }
+  
+  .grafico-container h3 {
+    font-size: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  #graficoVendas {
+    height: 250px;
+  }
+  
+  /* Comentário em Português: Interface de botões e atalhos redesenhada para melhor usabilidade em dispositivos móveis */
+  .atalhos {
+    grid-column: span 1;
+    padding: 1rem;
+  }
+  
+  .atalhos-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .btn-quick {
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Comentário em Português: Cabeçalho do dashboard compactado para dispositivos móveis */
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animações sutis para elementos da UI */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card, .grafico-container, .atalhos {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.grafico-container { animation-delay: 0.4s; }
+.atalhos { animation-delay: 0.5s; }
+
