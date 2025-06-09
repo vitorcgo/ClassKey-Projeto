@@ -120,27 +120,25 @@
         <!-- Cards de resumo - Redesenhados -->
         <div class="dashboard-cards">
           <div class="card">
-            <h2>Total de Produtos</h2>
-            <h3>120</h3>
+            <h2>Total de Produtos Cadastrados</h2>
+            <h3 id="totalProdutos"></h3>
             <p>
               <i class="ti ti-arrow-up-right trend-up"></i>
               <span class="trend-up">+5% esta semana</span>
             </p>
           </div>
           <div class="card">
-            <h2>Pedidos Pendentes</h2>
-            <h3>32</h3>
+            <h2>Total de Categorias</h2>
+            <h3 id="totalCategorias"></h3>
             <p>
               <i class="ti ti-arrow-down-right trend-down"></i>
-              <span class="trend-down">-2% esta semana</span>
             </p>
           </div>
           <div class="card">
-            <h2>Faturamento</h2>
-            <h3>R$ 12.450,00</h3>
+            <h2>Total de Administradores</h2>
+            <h3 id="totalAdministradores"></h3>
             <p>
               <i class="ti ti-arrow-up-right trend-up"></i>
-              <span class="trend-up">+12% este mês</span>
             </p>
           </div>
         </div>
@@ -305,6 +303,43 @@
           });
         </script>
         <script src="src/javascript/usuariologado.js"></script>
+        <script>
+        // A URL do seu script PHP para buscar as contagens
+        const phpApiUrl = 'src/php/get_counts.php'; 
+
+        async function fetchCounts() {
+            try {
+                const response = await fetch(phpApiUrl);
+                
+                if (!response.ok) {
+                    const errorData = await response.json(); // Tenta ler o JSON de erro do PHP
+                    throw new Error(errorData.erro || `Erro de rede ou servidor: ${response.status} ${response.statusText}`);
+                }
+
+                const data = await response.json(); // Pega a resposta JSON
+
+                // Verifica se a resposta contém um erro retornado pelo PHP
+                if (data.erro) {
+                    throw new Error(data.erro);
+                }
+
+                // Atualiza os elementos H3 com os dados recebidos
+                document.getElementById('totalProdutos').textContent = data.totalProdutos !== undefined ? data.totalProdutos : 'N/A';
+                document.getElementById('totalCategorias').textContent = data.totalCategorias !== undefined ? data.totalCategorias : 'N/A';
+                document.getElementById('totalAdministradores').textContent = data.totalAdministradores !== undefined ? data.totalAdministradores : 'N/A';
+
+            } catch (error) {
+                console.error('Erro ao buscar contagens:', error);
+                // Em caso de erro, exibe 'Erro!' ou 'N/A' nos cards
+                document.getElementById('totalProdutos').textContent = 'Erro!';
+                document.getElementById('totalCategorias').textContent = 'Erro!';
+                document.getElementById('totalAdministradores').textContent = 'Erro!';
+            }
+        }
+
+        // Chama a função para buscar e exibir os dados quando a página carregar
+        document.addEventListener('DOMContentLoaded', fetchCounts);
+    </script>
       </main>
     </section>
   </div>
